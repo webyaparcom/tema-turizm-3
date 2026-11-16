@@ -1,0 +1,181 @@
+<section class="modulex-galeri-album-kutu{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-galeri-album-kutu-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* galeri-album-kutu — galeri-buyut details/summary ile tek görseli büyütür, gezinme yoktur; galeri-sekmeli kategori sekmeleriyle düz ızgara gösterir. Bu modül kategorileri albüm kapağına çevirir (yığın görünümü + sayı) ve albüm içinde gezilen gerçek <dialog> görüntüleyici sunar (odak dönüşü, ok tuşları, swipe). */
+  .modulex-galeri-album-kutu { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-galeri-album-kutu *, .modulex-galeri-album-kutu *::before, .modulex-galeri-album-kutu *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-galeri-album-kutu :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-galeri-album-kutu :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-galeri-album-kutu :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-galeri-album-kutu :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-galeri-album-kutu img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-galeri-album-kutu) img { height: auto; }
+  .modulex-galeri-album-kutu [hidden] { display: none !important; }
+  .modulex-galeri-album-kutu :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-galeri-album-kutu :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-galeri-album-kutu-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-galeri-album-kutu-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-galeri-album-kutu--bassiz .modulex-galeri-album-kutu-bas { display: none; }
+  .modulex-galeri-album-kutu-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-galeri-album-kutu-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-galeri-album-kutu-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-galeri-album-kutu-bas { max-width: 760px; }
+  .modulex-galeri-album-kutu-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-galeri-album-kutu-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-galeri-album-kutu-dugme:hover { transform: translateY(-2px); }
+  .modulex-galeri-album-kutu-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-galeri-album-kutu-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-galeri-album-kutu-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-galeri-album-kutu-albumler { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 4vw, 48px) clamp(20px, 3vw, 36px); }
+  .modulex-galeri-album-kutu-album { display: grid; align-content: start; gap: 14px; }
+  .modulex-galeri-album-kutu-yigin { position: relative; isolation: isolate; padding-block-start: 12px; }
+  .modulex-galeri-album-kutu-yigin::before, .modulex-galeri-album-kutu-yigin::after { content: ""; position: absolute; inset: 12px 10px 0; z-index: -1; border: 1px solid --cizgi--; border-radius: --yuvarlak--; background: --kartBg--; transition: transform 0.45s ease; }
+  .modulex-galeri-album-kutu-yigin::before { transform: rotate(-4deg) translateY(-6px); }
+  .modulex-galeri-album-kutu-yigin::after { transform: rotate(3deg) translateY(-3px); }
+  .modulex-galeri-album-kutu-album:hover .modulex-galeri-album-kutu-yigin::before { transform: rotate(-7deg) translate(-8px, -10px); }
+  .modulex-galeri-album-kutu-album:hover .modulex-galeri-album-kutu-yigin::after { transform: rotate(6deg) translate(8px, -6px); }
+  .modulex-galeri-album-kutu-kapak { display: block; overflow: hidden; border-radius: --yuvarlak--; background: --kartBg--; box-shadow: 0 22px 40px -28px color-mix(in srgb, --text-- 75%, transparent); }
+  .modulex-galeri-album-kutu-kapak .modulex-galeri-album-kutu-g { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; transition: transform 0.6s ease, filter 0.6s ease; }
+  .modulex-galeri-album-kutu-kapak:hover .modulex-galeri-album-kutu-g, .modulex-galeri-album-kutu-kapak:focus-visible .modulex-galeri-album-kutu-g { transform: scale(1.05); filter: brightness(0.9); }
+  .modulex-galeri-album-kutu-adet { position: absolute; inset-block-end: 12px; inset-inline-end: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background: --bg--; color: --text--; font-size: 0.82rem; font-weight: 750; font-variant-numeric: tabular-nums; pointer-events: none; }
+  .modulex-galeri-album-kutu-adet .material-symbols-outlined { font-size: 18px; }
+  .modulex-galeri-album-kutu-abilgi { display: grid; gap: 4px; }
+  .modulex-galeri-album-kutu-aad { font-size: 1.2rem; font-weight: 750; line-height: 1.25; }
+  .modulex-galeri-album-kutu-icerik { color: --muted--; font-size: 0.88rem; line-height: 1.5; }
+  .modulex-galeri-album-kutu-kareler { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+  .modulex-galeri-album-kutu--kjs .modulex-galeri-album-kutu-kareler li:nth-child(n+5) { display: none; }
+  .modulex-galeri-album-kutu-kare { display: block; overflow: hidden; border-radius: 8px; background: --kartBg--; }
+  .modulex-galeri-album-kutu-kg { width: 100%; aspect-ratio: 1; height: auto; object-fit: cover; transition: opacity 0.3s ease, transform 0.4s ease; }
+  .modulex-galeri-album-kutu-kare .modulex-galeri-album-kutu-yer { aspect-ratio: 1; }
+  .modulex-galeri-album-kutu-kare:hover .modulex-galeri-album-kutu-kg { opacity: 0.8; transform: scale(1.06); }
+  .modulex-galeri-album-kutu-kutu { width: min(1120px, calc(100% - 24px)); max-width: none; max-height: calc(100% - 24px); padding: 0; overflow: visible; border: 0; border-radius: --yuvarlak--; background: --text--; color: --bg--; }
+  .modulex-galeri-album-kutu-kutu[open] { animation: modulex-galeri-album-kutu-ac 0.3s ease both; }
+  .modulex-galeri-album-kutu-kutu::backdrop { background: color-mix(in srgb, --text-- 84%, transparent); backdrop-filter: blur(4px); }
+  .modulex-galeri-album-kutu-kic { position: relative; display: grid; padding: clamp(14px, 2.4vw, 26px); }
+  .modulex-galeri-album-kutu-kfig { display: grid; justify-items: center; gap: 14px; margin: 0; }
+  .modulex-galeri-album-kutu-kfig.modulex-galeri-album-kutu--yeni .modulex-galeri-album-kutu-kimg { animation: modulex-galeri-album-kutu-ac 0.35s ease both; }
+  .modulex-galeri-album-kutu-kimg { display: block; width: auto; max-width: 100%; max-height: calc(100vh - 220px); height: auto; object-fit: contain; border-radius: calc(--yuvarlak-- * 0.6); }
+  .modulex-galeri-album-kutu-kalt { display: grid; justify-items: center; gap: 4px; max-width: 760px; padding-inline: 56px; text-align: center; }
+  .modulex-galeri-album-kutu-ksay { color: color-mix(in srgb, --bg-- 75%, --text--); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; }
+  .modulex-galeri-album-kutu-kbas { font-size: 1.1rem; font-weight: 750; }
+  .modulex-galeri-album-kutu-kmet { color: color-mix(in srgb, --bg-- 85%, --text--); font-size: 0.95rem; }
+  .modulex-galeri-album-kutu-kok, .modulex-galeri-album-kutu-kapat { position: absolute; display: inline-grid; place-items: center; width: 48px; height: 48px; border: 1px solid color-mix(in srgb, --bg-- 30%, transparent); border-radius: 50%; background: color-mix(in srgb, --text-- 70%, transparent); color: --bg--; transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease; }
+  .modulex-galeri-album-kutu-kok:hover, .modulex-galeri-album-kutu-kapat:hover { background: --bg--; color: --text--; transform: scale(1.06); }
+  .modulex-galeri-album-kutu-kok { inset-block-start: calc(50% - 44px); }
+  .modulex-galeri-album-kutu-kok--geri { inset-inline-start: 10px; }
+  .modulex-galeri-album-kutu-kok--ileri { inset-inline-end: 10px; }
+  .modulex-galeri-album-kutu-kapat { inset-block-start: -16px; inset-inline-end: -16px; background: --bg--; color: --text--; }
+  @keyframes modulex-galeri-album-kutu-ac { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: none; } }
+  @media (max-width: 768px) {
+    .modulex-galeri-album-kutu-albumler { grid-template-columns: minmax(0, 1fr); }
+    .modulex-galeri-album-kutu-kalt { padding-inline: 8px; }
+    .modulex-galeri-album-kutu-kok { inset-block-start: auto; inset-block-end: 8px; width: 42px; height: 42px; }
+    .modulex-galeri-album-kutu-kic { padding-block-end: 64px; }
+    .modulex-galeri-album-kutu-kapat { inset-block-start: 8px; inset-inline-end: 8px; }
+  }
+  .modulex-galeri-album-kutu-yer { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 3; background: color-mix(in srgb, --accent-- 14%, --kartBg--); color: --accentInk--; }
+  .modulex-galeri-album-kutu-yer .material-symbols-outlined { font-size: 40px; }
+  .modulex-galeri-album-kutu-bag { color: inherit; text-decoration: none; }
+  .modulex-galeri-album-kutu-bag:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .modulex-galeri-album-kutu-kbaslik { font-size: 1.05rem; font-weight: 700; line-height: 1.3; }
+  .modulex-galeri-album-kutu-kmetin { color: --muted--; font-size: 0.95rem; line-height: 1.6; }
+  .modulex-galeri-album-kutu-kat { color: --accentInk--; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .modulex-galeri-album-kutu-kontrol { display: flex; gap: 10px; justify-content: flex-end; margin-block-start: 18px; }
+  .modulex-galeri-album-kutu-ok { display: inline-grid; place-items: center; width: 48px; height: 48px; border: 1px solid --cizgi--; border-radius: 50%; background: --kartBg--; color: --text--; transition: background 0.25s ease, color 0.25s ease, opacity 0.25s ease; }
+  .modulex-galeri-album-kutu-ok:hover:not(:disabled) { background: --accent--; color: --accentText--; }
+  .modulex-galeri-album-kutu-ok:disabled { opacity: 0.4; cursor: default; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-galeri-album-kutu :is(.modulex-galeri-album-kutu-baslik, .modulex-galeri-album-kutu-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-galeri-album-kutu-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-galeri-album-kutu { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-galeri-album-kutu *, .modulex-galeri-album-kutu *::before, .modulex-galeri-album-kutu *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-galeri-album-kutu";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const albumKutu = (s, P) => {
+        const d = s.querySelector("dialog." + P + "-kutu");
+        const L = [...s.querySelectorAll("a[data-kutu]")];
+        if (!d || !L.length || typeof d.showModal !== "function") return;
+        s.classList.add(P + "--kjs");
+        const fig = d.querySelector("." + P + "-kfig");
+        const img = document.createElement("img");
+        img.className = P + "-kimg";
+        img.alt = "";
+        img.decoding = "async";
+        fig.prepend(img);
+        const bas = d.querySelector("." + P + "-kbas");
+        const met = d.querySelector("." + P + "-kmet");
+        const say = d.querySelector("." + P + "-ksay");
+        const git = [...d.querySelectorAll("[data-kutu-git]")];
+        let nf;
+        try { nf = new Intl.NumberFormat(document.documentElement.lang || undefined); } catch (x) { nf = { format: (v) => String(v) }; }
+        const grup = {};
+        L.forEach((a) => { const g = a.dataset.kutu; (grup[g] = grup[g] || [])[Number(a.dataset.sira) || 0] = a; });
+        let liste = [];
+        let n = 0;
+        let donus = null;
+        const goster = (i) => {
+          if (!liste.length) return;
+          n = (i + liste.length) % liste.length;
+          const a = liste[n];
+          img.src = a.getAttribute("href");
+          img.alt = a.dataset.alt || "";
+          bas.textContent = a.dataset.baslik || "";
+          met.textContent = a.dataset.metin || "";
+          met.hidden = !a.dataset.metin;
+          say.textContent = nf.format(n + 1) + " / " + nf.format(liste.length);
+          git.forEach((b) => { b.hidden = liste.length < 2; });
+          fig.classList.remove(P + "--yeni");
+          void fig.offsetWidth;
+          fig.classList.add(P + "--yeni");
+        };
+        L.forEach((a) => a.addEventListener("click", (e) => {
+          if (e.ctrlKey || e.metaKey || e.shiftKey || e.button > 0) return;
+          e.preventDefault();
+          const g = grup[a.dataset.kutu] || [];
+          liste = g.filter(Boolean);
+          donus = a;
+          goster(Math.max(0, liste.indexOf(g[Number(a.dataset.sira) || 0])));
+          d.showModal();
+        }));
+        git.forEach((b) => b.addEventListener("click", () => goster(n + Number(b.dataset.kutuGit))));
+        d.querySelectorAll("[data-kutu-kapat]").forEach((b) => b.addEventListener("click", () => d.close()));
+        d.addEventListener("click", (e) => { if (e.target === d) d.close(); });
+        d.addEventListener("keydown", (e) => {
+          const rtl = getComputedStyle(d).direction === "rtl";
+          if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); goster(n + ((e.key === "ArrowRight") !== rtl ? 1 : -1)); }
+          else if (e.key === "Home") { e.preventDefault(); goster(0); }
+          else if (e.key === "End") { e.preventDefault(); goster(liste.length - 1); }
+        });
+        let x0 = null;
+        d.addEventListener("pointerdown", (e) => { x0 = e.clientX; });
+        d.addEventListener("pointerup", (e) => {
+          if (x0 === null) return;
+          const dx = e.clientX - x0;
+          x0 = null;
+          if (Math.abs(dx) > 50 && liste.length > 1) { const rtl = getComputedStyle(d).direction === "rtl"; goster(n + ((dx < 0) !== rtl ? 1 : -1)); }
+        });
+        d.addEventListener("close", () => { if (donus) donus.focus(); });
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      albumKutu(s, P, az);
+    });
+  })();
+</script>

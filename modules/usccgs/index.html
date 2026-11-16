@@ -1,0 +1,153 @@
+<section class="modulex-iletisim-dikey-ray{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-iletisim-dikey-ray-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* iletisim-dikey-ray — iletisim-ray YATAY kaydırma rayıdır, iletisim-deste üst üste yığılmış destedir; bu modül DİKEY SNAP RAYI: grid-auto-rows: 100% ile pencere boyu kareler, scroll-snap-type: y mandatory + scroll-snap-stop: always, kaydırma konumundan sayaç / etkin kare / uç düğme durumu (dikeyRay, rAF kısıtlı) — ailede düşey kaydıran tek modül. */
+  .modulex-iletisim-dikey-ray { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-iletisim-dikey-ray *, .modulex-iletisim-dikey-ray *::before, .modulex-iletisim-dikey-ray *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-iletisim-dikey-ray :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-iletisim-dikey-ray :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-iletisim-dikey-ray :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-iletisim-dikey-ray :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-iletisim-dikey-ray img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-iletisim-dikey-ray) img { height: auto; }
+  .modulex-iletisim-dikey-ray [hidden] { display: none !important; }
+  .modulex-iletisim-dikey-ray :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-iletisim-dikey-ray :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-iletisim-dikey-ray-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-iletisim-dikey-ray-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-iletisim-dikey-ray--bassiz .modulex-iletisim-dikey-ray-bas { display: none; }
+  .modulex-iletisim-dikey-ray-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-iletisim-dikey-ray-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-iletisim-dikey-ray-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-iletisim-dikey-ray-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-iletisim-dikey-ray-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-iletisim-dikey-ray-dugme:hover { transform: translateY(-2px); }
+  .modulex-iletisim-dikey-ray-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-iletisim-dikey-ray-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-iletisim-dikey-ray-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-iletisim-dikey-ray-dr-duzen { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+  .modulex-iletisim-dikey-ray-dr-yan { display: grid; gap: 16px; min-width: 0; }
+  .modulex-iletisim-dikey-ray-dr-kumanda { justify-self: start; display: inline-flex; align-items: center; gap: 14px; margin-block-start: 8px; padding: 6px; border: 1px solid --cizgi--; border-radius: 999px; background: --kartBg--; }
+  .modulex-iletisim-dikey-ray:not(.modulex-iletisim-dikey-ray--rjs) .modulex-iletisim-dikey-ray-dr-kumanda { display: none; }
+  .modulex-iletisim-dikey-ray-dr-git { display: inline-grid; place-items: center; inline-size: 48px; block-size: 48px; border: 0; border-radius: 50%; background: --accent--; color: --accentText--; transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease; }
+  .modulex-iletisim-dikey-ray-dr-git:hover { transform: scale(1.08); }
+  .modulex-iletisim-dikey-ray-dr-git:disabled { background: --cizgi--; color: --text--; cursor: default; transform: none; }
+  .modulex-iletisim-dikey-ray-dr-git .material-symbols-outlined { font-size: 28px; }
+  .modulex-iletisim-dikey-ray-dr-sayac { min-inline-size: 76px; font-weight: 800; font-variant-numeric: tabular-nums; text-align: center; }
+  .modulex-iletisim-dikey-ray-dr-pencere { position: relative; display: grid; grid-auto-rows: 100%; block-size: 420px; overflow-y: auto; overscroll-behavior-y: contain; scroll-snap-type: y mandatory; scrollbar-width: none; border-radius: calc(--yuvarlak-- + 8px); background: --kartBg--; box-shadow: inset 0 0 0 1px --cizgi--; }
+  .modulex-iletisim-dikey-ray-dr-pencere::-webkit-scrollbar { display: none; }
+  .modulex-iletisim-dikey-ray-dr-pencere--tek { grid-auto-rows: auto; block-size: auto; }
+  .modulex-iletisim-dikey-ray-dr-pencere:focus-visible { outline: 3px solid --accent--; outline-offset: 4px; }
+  .modulex-iletisim-dikey-ray-dr-kare { position: relative; display: grid; align-content: center; justify-items: start; gap: 10px; min-width: 0; overflow: hidden; padding: clamp(26px, 4vw, 48px); scroll-snap-align: start; scroll-snap-stop: always; }
+  .modulex-iletisim-dikey-ray-dr-kare + .modulex-iletisim-dikey-ray-dr-kare { border-block-start: 1px dashed --cizgi--; }
+  .modulex-iletisim-dikey-ray-dr-sira { position: absolute; inset-block-start: 18px; inset-inline-end: 24px; color: --accentInk--; font-family: var(--mx-font-heading, inherit); font-size: 1.6rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .modulex-iletisim-dikey-ray-dr-top { color: --muted--; font-size: 1rem; }
+  .modulex-iletisim-dikey-ray-dr-ik { display: inline-grid; place-items: center; inline-size: 72px; block-size: 72px; border-radius: 22px; background: --accent--; color: --accentText--; font-size: 36px; transition: transform 0.5s cubic-bezier(0.3, 1.4, 0.5, 1); }
+  .modulex-iletisim-dikey-ray-dr-kare.modulex-iletisim-dikey-ray--etkin .modulex-iletisim-dikey-ray-dr-ik { transform: rotate(-8deg) scale(1.08); }
+  .modulex-iletisim-dikey-ray-dr-deger { max-inline-size: 100%; color: inherit; font-family: var(--mx-font-heading, inherit); font-size: clamp(1.4rem, 3vw, 2.3rem); font-weight: 800; line-height: 1.2; text-decoration: none; overflow-wrap: anywhere; transition: color 0.2s ease; }
+  a.modulex-iletisim-dikey-ray-dr-deger:hover { color: --accentInk--; }
+  .modulex-iletisim-dikey-ray-dr-eylemler { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-block-start: 4px; }
+  @media (max-width: 1024px) {
+    .modulex-iletisim-dikey-ray-dr-duzen { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .modulex-iletisim-dikey-ray-dr-pencere { block-size: 360px; }
+    .modulex-iletisim-dikey-ray-dr-kare { padding-block: 24px; padding-inline: 20px; }
+    .modulex-iletisim-dikey-ray-dr-ik { inline-size: 58px; block-size: 58px; font-size: 30px; }
+  }
+  .modulex-iletisim-dikey-ray-kikon { flex: none; display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: color-mix(in srgb, --accent-- 14%, transparent); color: --accentInk--; font-size: 24px; }
+  .modulex-iletisim-dikey-ray-ketiket { display: block; color: --muted--; font-size: 0.82rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; }
+  .modulex-iletisim-dikey-ray-deger { color: inherit; font-weight: 650; text-decoration: none; overflow-wrap: anywhere; transition: color 0.2s ease; }
+  a.modulex-iletisim-dikey-ray-deger:hover { color: --accentInk--; text-decoration: underline; text-underline-offset: 4px; }
+  .modulex-iletisim-dikey-ray-eylem { display: inline-flex; align-items: center; gap: 6px; color: --accentInk--; font-weight: 700; text-decoration: none; transition: gap 0.2s ease; }
+  .modulex-iletisim-dikey-ray-eylem:hover { gap: 10px; }
+  .modulex-iletisim-dikey-ray-eylem .material-symbols-outlined { font-size: 18px; }
+  .modulex-iletisim-dikey-ray-kopya { display: none; align-items: center; gap: 6px; min-height: 36px; padding: 6px 12px; border: 1px solid --cizgi--; border-radius: 999px; background: transparent; color: --text--; font: inherit; font-size: 0.85rem; font-weight: 650; transition: border-color 0.2s ease, background 0.2s ease; }
+  .modulex-iletisim-dikey-ray--kjs .modulex-iletisim-dikey-ray-kopya { display: inline-flex; }
+  .modulex-iletisim-dikey-ray-kopya:hover { border-color: --accent--; }
+  .modulex-iletisim-dikey-ray-kopya .material-symbols-outlined { font-size: 18px; }
+  .modulex-iletisim-dikey-ray--kopyalandi { background: color-mix(in srgb, --accent-- 14%, transparent); }
+  .modulex-iletisim-dikey-ray-sosyal { display: grid; gap: 10px; }
+  .modulex-iletisim-dikey-ray-sbaslik { color: --muted--; font-size: 0.9rem; font-weight: 650; }
+  .modulex-iletisim-dikey-ray-sliste { display: flex; flex-wrap: wrap; gap: 8px; }
+  .modulex-iletisim-dikey-ray-cip { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 8px 14px; border: 1px solid --cizgi--; border-radius: 999px; color: inherit; font-weight: 650; text-decoration: none; transition: border-color 0.2s ease, transform 0.2s ease; }
+  .modulex-iletisim-dikey-ray-cip:hover { border-color: --accent--; transform: translateY(-2px); }
+  .modulex-iletisim-dikey-ray-cikon { font-size: 18px; }
+  .modulex-iletisim-dikey-ray-harita { position: relative; overflow: hidden; min-height: 280px; border-radius: --yuvarlak--; background: --kartBg--; }
+  .modulex-iletisim-dikey-ray-iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .modulex-iletisim-dikey-ray-hdesen { position: absolute; inset: 0; display: grid; place-items: center; background-color: color-mix(in srgb, --accent-- 8%, --kartBg--); background-image: linear-gradient(color-mix(in srgb, --text-- 7%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, --text-- 7%, transparent) 1px, transparent 1px), radial-gradient(circle at 30% 40%, color-mix(in srgb, --accent-- 18%, transparent) 0 18%, transparent 19%); background-size: 36px 36px, 36px 36px, 100% 100%; }
+  .modulex-iletisim-dikey-ray-pin { color: --accentInk--; font-size: 56px; animation: modulex-iletisim-dikey-ray-zipla 2.4s ease-in-out infinite; }
+  @keyframes modulex-iletisim-dikey-ray-zipla { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .modulex-iletisim-dikey-ray-hyol { position: absolute; inset-block-end: 16px; inset-inline-start: 16px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 16px; border-radius: 999px; background: --bg--; color: --text--; font-weight: 700; text-decoration: none; box-shadow: 0 6px 20px color-mix(in srgb, --text-- 16%, transparent); transition: transform 0.2s ease; }
+  .modulex-iletisim-dikey-ray-hyol:hover { transform: translateY(-2px); }
+  .modulex-iletisim-dikey-ray-hyol .material-symbols-outlined { font-size: 18px; color: --accentInk--; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-iletisim-dikey-ray :is(.modulex-iletisim-dikey-ray-baslik, .modulex-iletisim-dikey-ray-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-iletisim-dikey-ray-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-iletisim-dikey-ray { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-iletisim-dikey-ray *, .modulex-iletisim-dikey-ray *::before, .modulex-iletisim-dikey-ray *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-iletisim-dikey-ray";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const dikeyRay = (s, P, az) => {
+        const v = s.querySelector("[data-dray]");
+        if (!v) return;
+        const K = [...v.children];
+        if (K.length < 2) return;
+        s.classList.add(P + "--rjs");
+        const say = s.querySelector("[data-dray-say]");
+        const B = [...s.querySelectorAll("[data-dray-git]")];
+        B.forEach((b) => {
+          b.hidden = false;
+          b.addEventListener("click", () => v.scrollBy({ top: Number(b.dataset.drayGit) * v.clientHeight, behavior: az ? "auto" : "smooth" }));
+        });
+        let bekle = false;
+        const kur = () => {
+          bekle = false;
+          const n = Math.min(K.length - 1, Math.max(0, Math.round(v.scrollTop / (v.clientHeight || 1))));
+          if (say) say.textContent = String(n + 1).padStart(2, "0");
+          K.forEach((k, i) => k.classList.toggle(P + "--etkin", i === n));
+          B.forEach((b) => { b.disabled = Number(b.dataset.drayGit) < 0 ? n === 0 : n === K.length - 1; });
+        };
+        v.addEventListener("scroll", () => { if (!bekle) { bekle = true; requestAnimationFrame(kur); } }, { passive: true });
+        kur();
+      };
+    const kopyala = (s, P) => {
+        if (!navigator.clipboard || !navigator.clipboard.writeText) return;
+        s.classList.add(P + "--kjs");
+        s.querySelectorAll("[data-kopyala]").forEach((b) => {
+          const yazi = b.querySelector("." + P + "-kyazi");
+          const ilk = yazi ? yazi.textContent : "";
+          b.addEventListener("click", () => {
+            const bitti = () => {
+              b.classList.add(P + "--kopyalandi");
+              if (yazi) yazi.textContent = b.dataset.tamam || ilk;
+              setTimeout(() => { b.classList.remove(P + "--kopyalandi"); if (yazi) yazi.textContent = ilk; }, 2000);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(b.dataset.kopyala).then(bitti, () => {});
+          });
+        });
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      dikeyRay(s, P, az);
+      kopyala(s, P, az);
+    });
+  })();
+</script>

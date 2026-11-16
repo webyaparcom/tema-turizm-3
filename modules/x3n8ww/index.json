@@ -1,0 +1,57 @@
+{
+  "name": "Galeri Albüm Kutusu — kategori albümleri ve dialog tam ekran görüntüleyici",
+  "description": "Görseller kategorisine göre albümlere toplanır (kategori yoksa tek albüm): her albüm üst üste binmiş fotoğraf yığını gibi kapak, görsel sayısı rozeti, albüm adı, içindeki görsellerin adları ve 4'lü küçük resim satırı. Kapağa ya da küçük resme dokununca yerel <dialog> tam ekran açılır: büyük görsel, sayaç (2 / 5), ad, açıklama; önceki/sonraki düğmeleri, ok tuşları, kaydırma, Esc ve perdeye dokunma ile kapanma. JS yokken bağlantılar görseli açar. galeri-buyut details/summary ile tek görseli büyütür, gezinme yoktur; galeri-sekmeli kategori sekmeleriyle düz ızgara gösterir. Bu modül kategorileri albüm kapağına çevirir (yığın görünümü + sayı) ve albüm içinde gezilen gerçek <dialog> görüntüleyici sunar (odak dönüşü, ok tuşları, swipe). Metinler dil sözlüğü, renkler desing + var(--mx-site-*), mantıksal CSS → RTL. Veri yoksa blok basılmaz.",
+  "version": "1.0.0",
+  "icon": "photo_album",
+  "category": "galeri",
+  "subCategory": "album-lightbox",
+  "tags": [
+    "galeri",
+    "album",
+    "lightbox",
+    "dialog",
+    "categories",
+    "rtl",
+    "fabrika"
+  ],
+  "desing": {
+    "max": "1200px",
+    "bosluk": "clamp(56px, 8vw, 104px)",
+    "yuvarlak": "18px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "tumu": "",
+    "bg": "var(--mx-site-bg, #ffffff)",
+    "text": "var(--mx-site-text, #111318)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #111318) 68%, var(--mx-site-bg, #ffffff))",
+    "kartBg": "var(--mx-site-surface, #f6f7f9)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-text, #111318) 12%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 70%, var(--mx-site-text, #111318))",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "vurguBg": "var(--mx-site-primary, #2563eb)",
+    "vurguText": "var(--mx-site-primary-contrast, #ffffff)",
+    "albumAd": "",
+    "kapatAd": "",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "color": "var(--mx-site-text, #111318)"
+  },
+  "data": [],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "data",
+    "alanlar": {
+      "img": "görsel yolu (boşsa yer tutucu)",
+      "baslik": "dil sözlüğü (resim adı)",
+      "alt": "dil sözlüğü (boşsa başlık)",
+      "metin": "dil sözlüğü (kısa açıklama)",
+      "kat": "kategori kimliği (desing.cats id'si)",
+      "url": "iç/dış bağlantı",
+      "w": "görsel genişliği (px, oran için)",
+      "h": "görsel yüksekliği (px)",
+      "kucuk": "küçük görsel (varsa ızgarada bu)"
+    }
+  }
+}

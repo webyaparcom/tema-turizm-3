@@ -1,0 +1,101 @@
+<footer class="modulex-alt-bilet{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-alt-bilet-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</footer>
+
+<style>
+  /* alt-bilet — Bilgi bir nesneye basılı: koçan + delikli ayraç + barkod etkinlik/ulaşım bileti dilini kurar; çentikler zemin renginde olduğu için koyu şemada da doğru görünür, hover'da bilet hafifçe eğilir. */
+  .modulex-alt-bilet { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-alt-bilet *, .modulex-alt-bilet *::before, .modulex-alt-bilet *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-alt-bilet :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-alt-bilet :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-alt-bilet :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-alt-bilet :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-alt-bilet img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-alt-bilet) img { height: auto; }
+  .modulex-alt-bilet [hidden] { display: none !important; }
+  .modulex-alt-bilet :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-alt-bilet :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-alt-bilet-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-alt-bilet-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-alt-bilet--bassiz .modulex-alt-bilet-bas { display: none; }
+  .modulex-alt-bilet-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-alt-bilet-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-alt-bilet-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-alt-bilet-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-alt-bilet-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-alt-bilet-dugme:hover { transform: translateY(-2px); }
+  .modulex-alt-bilet-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-alt-bilet-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-alt-bilet-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-alt-bilet-bag { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+  .modulex-alt-bilet-bag:hover { color: --accentInk--; text-decoration: underline; text-underline-offset: 4px; }
+  .modulex-alt-bilet-bag[aria-current="page"] { color: --accentInk--; font-weight: 700; }
+  .modulex-alt-bilet-logo { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; }
+  .modulex-alt-bilet-logo img { width: auto; max-height: --logoH--; }
+  .modulex-alt-bilet-ad { font-family: var(--mx-font-heading, inherit); font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .modulex-alt-bilet-bbaslik { margin-block-end: 14px; color: --accentInk--; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+  .modulex-alt-bilet-sayfalar, .modulex-alt-bilet-baglantilar, .modulex-alt-bilet-iletisim, .modulex-alt-bilet-yasal { display: grid; gap: 9px; }
+  .modulex-alt-bilet-il { display: flex; align-items: flex-start; gap: 10px; }
+  .modulex-alt-bilet-il-ic { display: grid; gap: 2px; }
+  .modulex-alt-bilet-il-etiket { color: --muted--; font-size: 0.8rem; }
+  .modulex-alt-bilet-il-ikon { flex: none; color: --accentInk--; font-size: 20px; }
+  .modulex-alt-bilet-saatler { display: grid; gap: 6px; }
+  .modulex-alt-bilet-saat { display: flex; justify-content: space-between; gap: 16px; }
+  .modulex-alt-bilet-saat dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .modulex-alt-bilet-sosyal { display: flex; flex-wrap: wrap; gap: 10px; }
+  .modulex-alt-bilet-sosyal-a { display: inline-grid; place-items: center; width: 42px; height: 42px; border: 1px solid --cizgi--; border-radius: 50%; color: inherit; font-size: 18px; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease; }
+  .modulex-alt-bilet-sosyal-a:hover { border-color: --accent--; background: --accent--; color: --accentText--; transform: translateY(-2px); }
+  .modulex-alt-bilet-hakkinda { max-width: 46ch; color: --muted--; }
+  .modulex-alt-bilet-telif { display: flex; flex-wrap: wrap; gap: 4px 14px; color: --muted--; font-size: 0.9rem; }
+  .modulex-alt-bilet-dil:empty { display: none; }
+  .modulex-alt-bilet-yukari { display: inline-grid; place-items: center; flex: none; width: 46px; height: 46px; border-radius: 50%; background: --accent--; color: --accentText--; text-decoration: none; transition: transform 0.25s ease; }
+  .modulex-alt-bilet-yukari:hover { transform: translateY(-3px); }
+  .modulex-alt-bilet-bulten { display: grid; gap: 8px; }
+  .modulex-alt-bilet-nl-etiket { font-size: 0.9rem; font-weight: 700; }
+  .modulex-alt-bilet-nl-satir { display: flex; flex-wrap: wrap; gap: 8px; }
+  .modulex-alt-bilet-nl-girdi { flex: 1 1 200px; min-width: 0; min-height: 48px; padding: 10px 18px; border: 1px solid --cizgi--; border-radius: 999px; background: --bg--; color: --text--; font: inherit; }
+  .modulex-alt-bilet-nl-dugme { display: inline-flex; align-items: center; gap: 6px; min-height: 48px; padding: 10px 22px; border: 0; border-radius: 999px; background: --accent--; color: --accentText--; font: inherit; font-weight: 700; transition: transform 0.2s ease; }
+  .modulex-alt-bilet-nl-dugme:hover { transform: translateY(-2px); }
+  .modulex-alt-bilet-nl-dugme .material-symbols-outlined { font-size: 18px; }
+  .modulex-alt-bilet-nl-durum:empty { display: none; }
+  .modulex-alt-bilet-nl-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+  .modulex-alt-bilet-nl-metin { color: --muted--; }
+
+  .modulex-alt-bilet-bl-bilet { display: grid; grid-template-columns: minmax(220px, 0.9fr) minmax(0, 2.6fr); border-radius: calc(--yuvarlak-- * 1.1); background: --kartBg--; box-shadow: 0 26px 50px -36px color-mix(in srgb, --text-- 60%, transparent); transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .modulex-alt-bilet-bl-bilet:hover { transform: rotate(-0.6deg) translateY(-3px); }
+  .modulex-alt-bilet-bl-kocan { position: relative; display: grid; align-content: start; gap: 14px; padding: clamp(24px, 3vw, 36px); border-inline-end: 2px dashed color-mix(in srgb, --vurguText-- 55%, transparent); border-start-start-radius: inherit; border-end-start-radius: inherit; background: --vurguBg--; color: --vurguText--; }
+  .modulex-alt-bilet-bl-kocan::before, .modulex-alt-bilet-bl-kocan::after { content: ""; position: absolute; z-index: 1; inset-inline-end: -15px; width: 28px; height: 28px; border-radius: 50%; background: --bg--; }
+  .modulex-alt-bilet-bl-kocan::before { inset-block-start: -14px; }
+  .modulex-alt-bilet-bl-kocan::after { inset-block-end: -14px; }
+  .modulex-alt-bilet-bl-ad { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; text-transform: uppercase; overflow-wrap: anywhere; }
+  .modulex-alt-bilet-bl-not { font-size: 0.92rem; line-height: 1.55; }
+  .modulex-alt-bilet-bl-barkod { display: block; height: 46px; margin-block-start: 8px; background: repeating-linear-gradient(90deg, currentColor 0 2px, transparent 2px 5px, currentColor 5px 6px, transparent 6px 10px, currentColor 10px 13px, transparent 13px 15px); opacity: 0.85; }
+  .modulex-alt-bilet-bl-govde { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 28px; padding: clamp(24px, 3.4vw, 42px); }
+  .modulex-alt-bilet-bl-son { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-block-start: 30px; }
+  .modulex-alt-bilet-bl-son .modulex-alt-bilet-telif { margin-inline-start: auto; }
+  .modulex-alt-bilet-bl-yasal { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.9rem; }
+  @media (max-width: 768px) {
+    .modulex-alt-bilet-bl-bilet { grid-template-columns: minmax(0, 1fr); }
+    .modulex-alt-bilet-bl-kocan { border-inline-end: 0; border-block-end: 2px dashed color-mix(in srgb, --vurguText-- 55%, transparent); border-end-start-radius: 0; border-start-end-radius: inherit; }
+    .modulex-alt-bilet-bl-kocan::before, .modulex-alt-bilet-bl-kocan::after { inset-block: auto -14px; }
+    .modulex-alt-bilet-bl-kocan::before { inset-inline: -14px auto; }
+    .modulex-alt-bilet-bl-kocan::after { inset-inline: auto -14px; }
+    .modulex-alt-bilet-bl-son .modulex-alt-bilet-telif { margin-inline-start: 0; }
+  }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-alt-bilet :is(.modulex-alt-bilet-baslik, .modulex-alt-bilet-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-alt-bilet-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-alt-bilet { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-alt-bilet *, .modulex-alt-bilet *::before, .modulex-alt-bilet *::after { animation: none !important; transition: none !important; }
+  }
+</style>

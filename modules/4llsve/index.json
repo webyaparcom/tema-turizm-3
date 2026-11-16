@@ -1,0 +1,54 @@
+{
+  "name": "Referans Yaka Kartı — iple asılı sallanan sahne/fuar kartları",
+  "description": "Her referans bir gerginlik ipinden sarkan yaka kartı: çizgili kordon (farklı boylarda), klips, kart deliği, üstte sektör bandı, yuvarlak amblem (logo/baş harf), ad, «#no · yıl» kart numarası ve barkod. Görünür olunca kartlar yukarıdan düşer, üzerine gelince/odakta sallanır. referans-muhur yuvarlak mühür dizisi, referans-yorunge merkez–çevre; bu modül asılı nesne iskeleti kurar (satır ipi + kordon + klips + kart) ve sarkaç sallanması/düşme girişi kullanır — asma/sarkaç etkileşimi ailede yok. Metinler dil sözlüğü, renkler desing + var(--mx-site-*), mantıksal CSS → RTL. Veri yoksa blok basılmaz.",
+  "version": "1.0.0",
+  "icon": "badge",
+  "category": "referans",
+  "subCategory": "lanyard-badges",
+  "tags": [
+    "referans",
+    "lanyard",
+    "badges",
+    "hanging",
+    "swing",
+    "rtl",
+    "fabrika"
+  ],
+  "desing": {
+    "max": "1200px",
+    "bosluk": "clamp(56px, 8vw, 104px)",
+    "yuvarlak": "18px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "sayi": "",
+    "sayiEtiket": "",
+    "bg": "var(--mx-site-bg, #ffffff)",
+    "text": "var(--mx-site-text, #111318)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #111318) 68%, var(--mx-site-bg, #ffffff))",
+    "kartBg": "var(--mx-site-surface, #f6f7f9)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-text, #111318) 12%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 70%, var(--mx-site-text, #111318))",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "vurguBg": "var(--mx-site-primary, #2563eb)",
+    "vurguText": "var(--mx-site-primary-contrast, #ffffff)",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "color": "var(--mx-site-text, #111318)"
+  },
+  "data": [],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "data",
+    "alanlar": {
+      "ad": "marka / kurum adı (dil sözlüğü ya da düz metin; logo alt yazısı)",
+      "img": "logo görseli yolu (boşsa yazı logosu)",
+      "url": "iç/dış bağlantı (dış → yeni sekme)",
+      "sektor": "dil sözlüğü (sektör / iş alanı)",
+      "metin": "dil sözlüğü (kısa görüş / iş özeti)",
+      "kisi": "dil sözlüğü (görüş sahibi)",
+      "yil": "birlikte çalışma yılı (düz metin)"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "Randevu Hizmet Vitrini — görselli hizmet kartları ve tek satır rezervasyon çubuğu",
+  "description": "Üstte hizmetler görselli/ikonlu büyük kartlar (ad, süre · fiyat, kısa açıklama); kart seçilince halkayla işaretlenir. Altında yapışık rezervasyon çubuğu: uzman, kişi/alan (masa modu), tarih, saat, ad, telefon, e-posta ve gönder; KVKK ve not çubuğun altında. Önce ne alınacağı bir ürün vitrini gibi gösterilir, rezervasyon tek yatay çubukta biter; randevu-hizmet-menu'nün metin listesine karşı görsel ağırlıklı. Sunucusuz gönderim (formAction JSON POST › WhatsApp › .ics › mailto), kapalı gün denetimi, KVKK onayı. Metinler dil sözlüğü, renkler desing + var(--mx-site-*), mantıksal CSS → RTL. Gönderim yolu yoksa blok basılmaz.",
+  "version": "1.0.0",
+  "icon": "storefront",
+  "category": "randevu",
+  "subCategory": "service-showcase",
+  "tags": [
+    "randevu",
+    "cards",
+    "showcase",
+    "booking-bar",
+    "rtl",
+    "fabrika"
+  ],
+  "desing": {
+    "max": "1200px",
+    "bosluk": "clamp(56px, 8vw, 104px)",
+    "yuvarlak": "18px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "bg": "var(--mx-site-bg, #ffffff)",
+    "text": "var(--mx-site-text, #111318)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #111318) 68%, var(--mx-site-bg, #ffffff))",
+    "kartBg": "var(--mx-site-surface, #f6f7f9)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-text, #111318) 12%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 70%, var(--mx-site-text, #111318))",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "vurguBg": "var(--mx-site-primary, #2563eb)",
+    "vurguText": "var(--mx-site-primary-contrast, #ffffff)",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "color": "var(--mx-site-text, #111318)"
+  },
+  "data": [],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "desing",
+    "alanlar": {
+      "ad": "hizmet adı (dil sözlüğü, zorunlu) — eski `services[].name`",
+      "sure": "dakika — eski `duration`",
+      "fiyat": "sayı (sayfa diliyle biçimlenir) — eski `price`",
+      "ikon": "Material Symbols adı",
+      "metin": "kısa açıklama (dil sözlüğü)",
+      "img": "görsel (destekleyen yerleşimde)"
+    }
+  }
+}

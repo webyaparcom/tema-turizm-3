@@ -1,0 +1,104 @@
+<section class="modulex-zaman-bilet{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-zaman-bilet-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* zaman-bilet — zaman-takvim-yaprak ve zaman-pano kâğıt nesne metaforlu ızgara kartlardır; zaman-bilet yatay iki bölmeli (gövde + koçan) bilet iskeletidir: mask ile oyulmuş delikler, kesik koçan çizgisi, barkod ve zikzak dizilim — yolculuk/konser/fuar girişi dili. */
+  .modulex-zaman-bilet { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-zaman-bilet *, .modulex-zaman-bilet *::before, .modulex-zaman-bilet *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-zaman-bilet :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-zaman-bilet :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-zaman-bilet :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-zaman-bilet :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-zaman-bilet img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-zaman-bilet) img { height: auto; }
+  .modulex-zaman-bilet [hidden] { display: none !important; }
+  .modulex-zaman-bilet :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-zaman-bilet :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-zaman-bilet-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-zaman-bilet-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-zaman-bilet--bassiz .modulex-zaman-bilet-bas { display: none; }
+  .modulex-zaman-bilet-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-zaman-bilet-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-zaman-bilet-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-zaman-bilet-bas { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px 48px; align-items: end; }
+  .modulex-zaman-bilet-ust { grid-column: 1 / -1; }
+  .modulex-zaman-bilet-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-zaman-bilet-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-zaman-bilet-dugme:hover { transform: translateY(-2px); }
+  .modulex-zaman-bilet-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-zaman-bilet-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-zaman-bilet-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-zaman-bilet-biletler { display: grid; gap: 26px; max-width: 960px; margin-inline: auto; }
+  .modulex-zaman-bilet-bilet { position: relative; filter: drop-shadow(0 14px 16px color-mix(in srgb, --text-- 16%, transparent)); transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s linear; transition-delay: calc(var(--i) * 0.08s); }
+  .modulex-zaman-bilet-bilet:nth-child(odd) { margin-inline-end: clamp(0px, 7vw, 84px); }
+  .modulex-zaman-bilet-bilet:nth-child(even) { margin-inline-start: clamp(0px, 7vw, 84px); }
+  .modulex-zaman-bilet-kagit { --x: calc(100% - 190px); display: grid; grid-template-columns: minmax(0, 1fr) 190px; min-height: 150px; border-radius: 16px; background-color: --kartBg--; mask-image: radial-gradient(circle at var(--x) 0, transparent 13px, black 13.5px), radial-gradient(circle at var(--x) 100%, transparent 13px, black 13.5px); mask-composite: intersect; }
+  .modulex-zaman-bilet-kagit:dir(rtl) { --x: 190px; }
+  .modulex-zaman-bilet-govde { position: relative; display: flex; align-items: center; gap: 20px; padding: 24px clamp(20px, 3vw, 32px); }
+  .modulex-zaman-bilet-ikon { flex: none; display: inline-grid; place-items: center; width: 58px; height: 58px; border: 2px dashed --accent--; border-radius: 50%; color: --accentInk--; font-size: 28px; transition: transform 0.4s ease; }
+  .modulex-zaman-bilet-bilet:hover .modulex-zaman-bilet-ikon { transform: rotate(-12deg); }
+  .modulex-zaman-bilet-yazi { display: grid; gap: 6px; min-width: 0; }
+  .modulex-zaman-bilet-kbaslik { font-size: 1.25rem; font-weight: 760; }
+  .modulex-zaman-bilet-kmetin { color: --muted--; font-size: 0.96rem; }
+  .modulex-zaman-bilet-kocan { display: grid; align-content: center; justify-items: center; gap: 8px; padding: 18px 16px; border-inline-start: 2px dashed --cizgi--; text-align: center; transform-origin: 50% 100%; transition: transform 0.45s ease; }
+  .modulex-zaman-bilet-bilet:nth-child(3n+2) .modulex-zaman-bilet-kocan { background-color: --vurguBg--; color: --vurguText--; }
+  .modulex-zaman-bilet-bilet:hover .modulex-zaman-bilet-kocan { transform: rotate(4deg) translateY(-4px); }
+  .modulex-zaman-bilet-bilet:hover .modulex-zaman-bilet-kocan:dir(rtl) { transform: rotate(-4deg) translateY(-4px); }
+  .modulex-zaman-bilet-no { color: --muted--; font-family: var(--mx-font-mono, ui-monospace, monospace); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; }
+  .modulex-zaman-bilet-yil { color: --accentInk--; font-size: clamp(1.9rem, 3.4vw, 2.6rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .modulex-zaman-bilet-bilet:nth-child(3n+2) :is(.modulex-zaman-bilet-no, .modulex-zaman-bilet-yil) { color: inherit; }
+  .modulex-zaman-bilet-barkod { width: 100%; max-width: 128px; height: 30px; background-image: repeating-linear-gradient(90deg, currentColor 0 2px, transparent 2px 4px, currentColor 4px 7px, transparent 7px 9px, currentColor 9px 10px, transparent 10px 13px); opacity: 0.75; }
+  .modulex-zaman-bilet--hazir:not(.modulex-zaman-bilet--gor) .modulex-zaman-bilet-bilet { visibility: hidden; transform: translateY(24px) rotate(-1.5deg); }
+  @media (max-width: 768px) {
+    .modulex-zaman-bilet-bilet:nth-child(n) { margin-inline: 0; }
+    .modulex-zaman-bilet-kagit { grid-template-columns: minmax(0, 1fr); mask-image: radial-gradient(circle at 0 96px, transparent 13px, black 13.5px), radial-gradient(circle at 100% 96px, transparent 13px, black 13.5px); }
+    .modulex-zaman-bilet-kocan { order: -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; height: 96px; padding: 12px 22px; border-inline-start: 0; border-block-end: 2px dashed --cizgi--; }
+    .modulex-zaman-bilet-barkod { width: 84px; }
+    .modulex-zaman-bilet-bilet:hover .modulex-zaman-bilet-kocan, .modulex-zaman-bilet-bilet:hover .modulex-zaman-bilet-kocan:dir(rtl) { transform: none; }
+    .modulex-zaman-bilet-govde { gap: 14px; padding: 20px 18px; }
+    .modulex-zaman-bilet-ikon { width: 46px; height: 46px; font-size: 22px; }
+  }
+  .modulex-zaman-bilet-bag { color: inherit; text-decoration: none; }
+  .modulex-zaman-bilet-bag::after { content: ""; position: absolute; inset: 0; z-index: 3; }
+  .modulex-zaman-bilet-bag:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-zaman-bilet :is(.modulex-zaman-bilet-baslik, .modulex-zaman-bilet-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-zaman-bilet-baslik { line-height: 1.35; }
+  @media (max-width: 1024px) {
+    .modulex-zaman-bilet-bas { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .modulex-zaman-bilet { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-zaman-bilet *, .modulex-zaman-bilet *::before, .modulex-zaman-bilet *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-zaman-bilet";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const gozlem = (s, P, az) => {
+        const gor = () => s.classList.add(P + "--gor");
+        s.classList.add(P + "--hazir");
+        if (az || !("IntersectionObserver" in window)) { gor(); return; }
+        const io = new IntersectionObserver((gs) => {
+          gs.forEach((g) => { if (g.isIntersecting) { gor(); io.disconnect(); } });
+        }, { threshold: 0.15 });
+        io.observe(s);
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      gozlem(s, P, az);
+    });
+  })();
+</script>

@@ -1,0 +1,103 @@
+<section class="modulex-referans-yaka-kart{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-referans-yaka-kart-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* referans-yaka-kart — referans-muhur yuvarlak mühür dizisi, referans-yorunge merkez–çevre; bu modül asılı nesne iskeleti kurar (satır ipi + kordon + klips + kart) ve sarkaç sallanması/düşme girişi kullanır — asma/sarkaç etkileşimi ailede yok. */
+  .modulex-referans-yaka-kart { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-referans-yaka-kart *, .modulex-referans-yaka-kart *::before, .modulex-referans-yaka-kart *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-referans-yaka-kart :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-referans-yaka-kart :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-referans-yaka-kart :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-referans-yaka-kart :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-referans-yaka-kart img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-referans-yaka-kart) img { height: auto; }
+  .modulex-referans-yaka-kart [hidden] { display: none !important; }
+  .modulex-referans-yaka-kart :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-referans-yaka-kart :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-referans-yaka-kart-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-referans-yaka-kart-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-referans-yaka-kart--bassiz .modulex-referans-yaka-kart-bas { display: none; }
+  .modulex-referans-yaka-kart-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-referans-yaka-kart-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-referans-yaka-kart-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-referans-yaka-kart-bas { max-width: 780px; margin-inline: auto; text-align: center; justify-items: center; }
+  .modulex-referans-yaka-kart-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-referans-yaka-kart-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-referans-yaka-kart-dugme:hover { transform: translateY(-2px); }
+  .modulex-referans-yaka-kart-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-referans-yaka-kart-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-referans-yaka-kart-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-referans-yaka-kart-ip { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 22px; padding-inline: 12px; }
+  .modulex-referans-yaka-kart-aski { position: relative; display: grid; flex: 0 0 176px; justify-items: center; padding-block-end: 34px; }
+  .modulex-referans-yaka-kart-aski::before { content: ""; position: absolute; inset-block-start: 0; inset-inline: -12px; height: 4px; border-radius: 4px; background: color-mix(in srgb, --text-- 50%, --bg--); }
+  .modulex-referans-yaka-kart-sarkac { display: grid; justify-items: center; width: 100%; transform-origin: 50% 0; transition: transform 0.9s cubic-bezier(0.3, 1.5, 0.5, 1); }
+  .modulex-referans-yaka-kart-aski:nth-child(even) .modulex-referans-yaka-kart-sarkac { transition-delay: 0.12s; }
+  .modulex-referans-yaka-kart--hazir:not(.modulex-referans-yaka-kart--gor) .modulex-referans-yaka-kart-sarkac { transform: translateY(-40px) rotate(6deg); }
+  .modulex-referans-yaka-kart-aski:hover .modulex-referans-yaka-kart-sarkac, .modulex-referans-yaka-kart-aski:focus-within .modulex-referans-yaka-kart-sarkac { animation: modulex-referans-yaka-kart-salla 1.6s ease-in-out; }
+  .modulex-referans-yaka-kart-kordon { width: 14px; height: 46px; background: repeating-linear-gradient(180deg, --accent-- 0 6px, color-mix(in srgb, --accent-- 60%, --bg--) 6px 12px); clip-path: polygon(0 0, 100% 0, 78% 100%, 22% 100%); }
+  .modulex-referans-yaka-kart-aski:nth-child(3n+2) .modulex-referans-yaka-kart-kordon { height: 72px; }
+  .modulex-referans-yaka-kart-aski:nth-child(3n) .modulex-referans-yaka-kart-kordon { height: 58px; }
+  .modulex-referans-yaka-kart-sarkac > .modulex-referans-yaka-kart-bag { position: relative; display: grid; justify-items: center; gap: 10px; width: 100%; max-width: 200px; padding: 18px 14px 16px; overflow: hidden; border: 1px solid --cizgi--; border-radius: 14px; background: --kartBg--; text-align: center; box-shadow: 0 20px 30px -24px color-mix(in srgb, --text-- 65%, transparent); }
+  .modulex-referans-yaka-kart-sarkac > .modulex-referans-yaka-kart-bag::before { content: ""; position: absolute; inset-block-start: 0; inset-inline: calc(50% - 15px); height: 12px; border: 3px solid color-mix(in srgb, --text-- 45%, --bg--); border-block-start: 0; border-radius: 0 0 6px 6px; }
+  .modulex-referans-yaka-kart-delik { width: 40px; height: 8px; margin-block-start: 6px; border-radius: 8px; background: color-mix(in srgb, --text-- 16%, transparent); }
+  .modulex-referans-yaka-kart-ybant { justify-self: stretch; min-height: 26px; margin-inline: -14px; padding: 5px 10px; background-color: --vurguBg--; color: --vurguText--; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-referans-yaka-kart-yfoto { display: grid; place-items: center; width: 76px; height: 76px; overflow: hidden; border: 3px solid --kartBg--; border-radius: 50%; background: color-mix(in srgb, --accent-- 15%, --bg--); color: --accentInk--; font-size: 1.4rem; font-weight: 850; box-shadow: 0 0 0 2px --accent--; }
+  .modulex-referans-yaka-kart-yfoto img { width: 100%; height: 100%; padding: 12px; object-fit: contain; }
+  .modulex-referans-yaka-kart-yad { font-size: 1.02rem; font-weight: 800; line-height: 1.25; }
+  .modulex-referans-yaka-kart-yno { color: --muted--; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.74rem; letter-spacing: 0.06em; }
+  .modulex-referans-yaka-kart-yizi { width: 72%; height: 18px; background: repeating-linear-gradient(90deg, color-mix(in srgb, --text-- 70%, transparent) 0 1px, transparent 1px 3px, color-mix(in srgb, --text-- 70%, transparent) 3px 5px, transparent 5px 7px); }
+  .modulex-referans-yaka-kart-aski:hover .modulex-referans-yaka-kart-yad { color: --accentInk--; }
+  @keyframes modulex-referans-yaka-kart-salla { 0% { transform: rotate(0); } 25% { transform: rotate(5deg); } 50% { transform: rotate(-4deg); } 75% { transform: rotate(2deg); } 100% { transform: rotate(0); } }
+  @media (max-width: 768px) {
+    .modulex-referans-yaka-kart-ip { gap: 0 12px; padding-inline: 6px; }
+    .modulex-referans-yaka-kart-aski { flex-basis: calc(50% - 6px); }
+    .modulex-referans-yaka-kart-aski::before { inset-inline: -7px; }
+    .modulex-referans-yaka-kart-kordon { height: 34px; }
+    .modulex-referans-yaka-kart-aski:nth-child(3n+2) .modulex-referans-yaka-kart-kordon { height: 50px; }
+    .modulex-referans-yaka-kart-aski:nth-child(3n) .modulex-referans-yaka-kart-kordon { height: 42px; }
+  }
+  .modulex-referans-yaka-kart-logo { display: block; width: auto; max-width: 100%; height: clamp(32px, 4vw, 48px); object-fit: contain; filter: grayscale(1); transition: filter 0.3s ease, transform 0.3s ease; }
+  .modulex-referans-yaka-kart-kelime { display: inline-block; color: --text--; font-family: var(--mx-font-heading, inherit); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; transition: color 0.3s ease; }
+  .modulex-referans-yaka-kart-bag { color: inherit; text-decoration: none; }
+  .modulex-referans-yaka-kart-sektor { color: --accentInk--; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .modulex-referans-yaka-kart-kmetin { color: --muted--; font-size: 0.95rem; line-height: 1.65; }
+  .modulex-referans-yaka-kart-yil { color: --muted--; font-size: 0.85rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .modulex-referans-yaka-kart-harf img { width: 100%; height: 100%; object-fit: contain; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-referans-yaka-kart :is(.modulex-referans-yaka-kart-baslik, .modulex-referans-yaka-kart-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-referans-yaka-kart-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-referans-yaka-kart { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-referans-yaka-kart *, .modulex-referans-yaka-kart *::before, .modulex-referans-yaka-kart *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-referans-yaka-kart";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const gozlem = (s, P, az) => {
+        const gor = () => s.classList.add(P + "--gor");
+        s.classList.add(P + "--hazir");
+        if (az || !("IntersectionObserver" in window)) { gor(); return; }
+        const io = new IntersectionObserver((gs) => {
+          gs.forEach((g) => { if (g.isIntersecting) { gor(); io.disconnect(); } });
+        }, { threshold: 0.15 });
+        io.observe(s);
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      gozlem(s, P, az);
+    });
+  })();
+</script>

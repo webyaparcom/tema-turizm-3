@@ -1,0 +1,123 @@
+<section class="modulex-mevsim-urun-takvimi{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-mevsim-urun-takvimi-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* mevsim-urun-takvimi — ders-programi-tablo'nun gün × saat hücre çiplerinden ve kargo-desi-hesap'ın fiyat matrisinden farkı: hücreler değer değil süreklilik taşır (ay aralığından türeyen, yıl sonunu saran yuvarlak uçlu sezon bantları + zirve tonu), sütun başlıkları süzgeç düğmesidir ve bu ay istemcide vurgulanır. */
+  .modulex-mevsim-urun-takvimi { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-mevsim-urun-takvimi *, .modulex-mevsim-urun-takvimi *::before, .modulex-mevsim-urun-takvimi *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-mevsim-urun-takvimi :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-mevsim-urun-takvimi :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-mevsim-urun-takvimi :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-mevsim-urun-takvimi :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-mevsim-urun-takvimi img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-mevsim-urun-takvimi) img { height: auto; }
+  .modulex-mevsim-urun-takvimi [hidden] { display: none !important; }
+  .modulex-mevsim-urun-takvimi :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-mevsim-urun-takvimi :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-mevsim-urun-takvimi-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-mevsim-urun-takvimi-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-mevsim-urun-takvimi--bassiz .modulex-mevsim-urun-takvimi-bas { display: none; }
+  .modulex-mevsim-urun-takvimi-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-mevsim-urun-takvimi-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-mevsim-urun-takvimi-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-mevsim-urun-takvimi-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-mevsim-urun-takvimi-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-mevsim-urun-takvimi-dugme:hover { transform: translateY(-2px); }
+  .modulex-mevsim-urun-takvimi-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-mevsim-urun-takvimi-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-mevsim-urun-takvimi-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-mevsim-urun-takvimi-giris { display: grid; gap: 14px; max-width: 760px; margin-block-end: 22px; }
+  .modulex-mevsim-urun-takvimi-lejant { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; margin-block-end: 18px; font-size: 0.88rem; font-weight: 700; }
+  .modulex-mevsim-urun-takvimi-lj { display: inline-flex; align-items: center; gap: 8px; }
+  .modulex-mevsim-urun-takvimi-lj .modulex-mevsim-urun-takvimi-bant { display: inline-block; width: 34px; height: 14px; margin: 0; }
+  .modulex-mevsim-urun-takvimi-buay { display: inline-flex; align-items: center; gap: 6px; margin-inline-start: auto; min-height: 42px; padding: 8px 16px; border: 2px solid --accent--; border-radius: 999px; background: transparent; color: --accentInk--; font: inherit; font-weight: 800; transition: background-color 0.2s ease, color 0.2s ease; }
+  .modulex-mevsim-urun-takvimi-buay:hover { background-color: color-mix(in srgb, --accent-- 12%, transparent); }
+  .modulex-mevsim-urun-takvimi-buay[aria-pressed="true"] { background-color: --accent--; color: --accentText--; }
+  .modulex-mevsim-urun-takvimi-tkap { position: relative; overflow-x: auto; border-radius: --yuvarlak--; background: --kartBg--; }
+  .modulex-mevsim-urun-takvimi-takvim { width: 100%; min-width: 820px; border-collapse: collapse; table-layout: fixed; }
+  .modulex-mevsim-urun-takvimi-takvim :is(th, td) { padding: 0; border-block-end: 1px solid --cizgi--; transition: background-color 0.25s ease; }
+  .modulex-mevsim-urun-takvimi-takvim tbody tr:last-child > * { border-block-end: 0; }
+  .modulex-mevsim-urun-takvimi-kose { width: 190px; padding: 12px 16px; color: --muted--; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.1em; text-align: start; text-transform: uppercase; }
+  .modulex-mevsim-urun-takvimi-takvim thead th { padding-block: 8px; }
+  .modulex-mevsim-urun-takvimi-ay { width: 100%; min-height: 38px; padding: 6px 2px; border: 0; border-radius: 8px; background: transparent; color: --text--; font: inherit; font-size: 0.8rem; font-weight: 800; text-transform: capitalize; transition: background-color 0.2s ease, color 0.2s ease; }
+  .modulex-mevsim-urun-takvimi-ay:hover { background-color: color-mix(in srgb, --accent-- 12%, transparent); }
+  .modulex-mevsim-urun-takvimi-ay[aria-pressed="true"] { background-color: --text--; color: --bg--; }
+  .modulex-mevsim-urun-takvimi:not(.modulex-mevsim-urun-takvimi--js) .modulex-mevsim-urun-takvimi-ay { pointer-events: none; }
+  .modulex-mevsim-urun-takvimi-takvim tbody th { position: sticky; inset-inline-start: 0; z-index: 1; padding: 10px 16px; background: --kartBg--; font-weight: 500; text-align: start; }
+  .modulex-mevsim-urun-takvimi-urun { display: flex; align-items: center; gap: 10px; }
+  .modulex-mevsim-urun-takvimi-uik { color: --accentInk--; font-size: 22px; }
+  .modulex-mevsim-urun-takvimi-uyazi { display: grid; }
+  .modulex-mevsim-urun-takvimi-uad { font-size: 0.95rem; font-weight: 750; }
+  .modulex-mevsim-urun-takvimi-unot { color: --muted--; font-size: 0.76rem; }
+  .modulex-mevsim-urun-takvimi-takvim td { height: 52px; vertical-align: middle; }
+  .modulex-mevsim-urun-takvimi-bant { display: block; height: 18px; margin-inline: -1px; background: color-mix(in srgb, --accent-- 38%, --kartBg--); animation: modulex-mevsim-urun-takvimi-bant 0.5s ease both; }
+  .modulex-mevsim-urun-takvimi-bant--zirve { background: --accent--; }
+  .modulex-mevsim-urun-takvimi-bant--bas { margin-inline-start: 6px; border-start-start-radius: 9px; border-end-start-radius: 9px; }
+  .modulex-mevsim-urun-takvimi-bant--son { margin-inline-end: 6px; border-start-end-radius: 9px; border-end-end-radius: 9px; }
+  .modulex-mevsim-urun-takvimi-takvim .modulex-mevsim-urun-takvimi--bugun { background-color: color-mix(in srgb, --accent-- 9%, transparent); }
+  .modulex-mevsim-urun-takvimi-takvim thead th.modulex-mevsim-urun-takvimi--bugun .modulex-mevsim-urun-takvimi-ay { box-shadow: inset 0 -3px 0 --accent--; }
+  .modulex-mevsim-urun-takvimi-takvim .modulex-mevsim-urun-takvimi--secay { background-color: color-mix(in srgb, --text-- 7%, transparent); }
+  .modulex-mevsim-urun-takvimi-gizli { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .modulex-mevsim-urun-takvimi-tyok { padding: 20px; color: --muted--; text-align: center; }
+  .modulex-mevsim-urun-takvimi-tkap + .modulex-mevsim-urun-takvimi-cta { margin-block-start: 26px; }
+  @keyframes modulex-mevsim-urun-takvimi-bant { from { transform: scaleX(0.2); opacity: 0; } to { transform: none; opacity: 1; } }
+  @media (max-width: 768px) {
+    .modulex-mevsim-urun-takvimi-buay { margin-inline-start: 0; }
+    .modulex-mevsim-urun-takvimi-kose { width: 140px; }
+    .modulex-mevsim-urun-takvimi-takvim tbody th { padding-inline: 10px; }
+    .modulex-mevsim-urun-takvimi-uik { display: none; }
+  }
+  .modulex-mevsim-urun-takvimi-bag { color: inherit; text-decoration: none; }
+  .modulex-mevsim-urun-takvimi-bag:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .modulex-mevsim-urun-takvimi-mbaslik { font-size: 1.05rem; font-weight: 700; }
+  .modulex-mevsim-urun-takvimi-mmetin { color: --muted--; font-size: 0.95rem; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-mevsim-urun-takvimi :is(.modulex-mevsim-urun-takvimi-baslik, .modulex-mevsim-urun-takvimi-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-mevsim-urun-takvimi-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-mevsim-urun-takvimi { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-mevsim-urun-takvimi *, .modulex-mevsim-urun-takvimi *::before, .modulex-mevsim-urun-takvimi *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-mevsim-urun-takvimi";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const mevsimAy = (s, P) => {
+        const ab = [...s.querySelectorAll("[data-ay]")];
+        if (!ab.length) return;
+        s.classList.add(P + "--js");
+        const satir = [...s.querySelectorAll("[data-aylar]")];
+        const bu = String(new Date().getMonth() + 1);
+        s.querySelectorAll("[data-m]").forEach((c) => c.classList.toggle(P + "--bugun", c.dataset.m === bu));
+        const yok = s.querySelector("[data-tyok]");
+        let sec = "";
+        const uygula = () => {
+          ab.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.ay === sec)));
+          satir.forEach((r) => { r.hidden = !!sec && !r.dataset.aylar.split(",").includes(sec); });
+          s.querySelectorAll("[data-m]").forEach((c) => c.classList.toggle(P + "--secay", c.dataset.m === sec));
+          if (yok) yok.hidden = !sec || satir.some((r) => !r.hidden);
+          if (bt) bt.setAttribute("aria-pressed", String(sec === bu));
+        };
+        const bt = s.querySelector("[data-buay]");
+        if (bt) { bt.hidden = false; bt.addEventListener("click", () => { sec = sec === bu ? "" : bu; uygula(); }); }
+        ab.forEach((b) => b.addEventListener("click", () => { sec = sec === b.dataset.ay ? "" : b.dataset.ay; uygula(); }));
+        uygula();
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      mevsimAy(s, P, az);
+    });
+  })();
+</script>

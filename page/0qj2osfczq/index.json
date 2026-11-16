@@ -1,0 +1,40 @@
+{
+  "id": "0qj2osfczq",
+  "name": {
+    "tr": "Gün planı",
+    "en": "Day plan",
+    "ar": "برنامج اليوم"
+  },
+  "description": {
+    "tr": "Konakta bir gün ve mevsim takvimi.",
+    "en": "A day at the house and the season calendar.",
+    "ar": "يوم في البيت وتقويم المواسم."
+  },
+  "keyword": {
+    "tr": "gün planı, mevsim",
+    "en": "day plan, season",
+    "ar": "برنامج اليوم، المواسم"
+  },
+  "path": "hizmetler",
+  "icon": "schedule",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "iz1i79",
+      "q18bz9"
+    ],
+    "footer": []
+  },
+  "index": 0,
+  "url": "",
+  "text": {},
+  "title": {
+    "tr": "Gün planı",
+    "en": "Day plan",
+    "ar": "برنامج اليوم"
+  },
+  "date": "2026-11-16T20:23:30.110Z",
+  "update": "2026-11-16T20:26:23.793Z"
+}

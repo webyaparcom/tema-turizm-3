@@ -1,0 +1,137 @@
+<section class="modulex-surec-adim-sihirbaz{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-surec-adim-sihirbaz-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* surec-adim-sihirbaz — surec-akordeon adımları katlanır satırlara, surec-yatay-ray kaydırılan karta, surec-kart-yigin yapışkan yığına döker; bu modül adımları sihirbaz (stepper) gibi tek tek sayfalar: adım pilleri, önceki/sonraki gezintisi, ilerleme çubuğu ve sayaç — aynı anda tek adım görünür, ailede sayfalama yok. */
+  .modulex-surec-adim-sihirbaz { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-surec-adim-sihirbaz *, .modulex-surec-adim-sihirbaz *::before, .modulex-surec-adim-sihirbaz *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-surec-adim-sihirbaz :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-surec-adim-sihirbaz :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-surec-adim-sihirbaz :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-surec-adim-sihirbaz :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-surec-adim-sihirbaz img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-surec-adim-sihirbaz) img { height: auto; }
+  .modulex-surec-adim-sihirbaz [hidden] { display: none !important; }
+  .modulex-surec-adim-sihirbaz :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-surec-adim-sihirbaz :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-surec-adim-sihirbaz-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-surec-adim-sihirbaz-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-surec-adim-sihirbaz--bassiz .modulex-surec-adim-sihirbaz-bas { display: none; }
+  .modulex-surec-adim-sihirbaz-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-surec-adim-sihirbaz-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-surec-adim-sihirbaz-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-surec-adim-sihirbaz-bas { max-width: 760px; }
+  .modulex-surec-adim-sihirbaz-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-surec-adim-sihirbaz-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-surec-adim-sihirbaz-dugme:hover { transform: translateY(-2px); }
+  .modulex-surec-adim-sihirbaz-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-surec-adim-sihirbaz-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-surec-adim-sihirbaz-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-surec-adim-sihirbaz-sihirbaz { display: grid; gap: 22px; }
+  .modulex-surec-adim-sihirbaz-serit { position: relative; }
+  .modulex-surec-adim-sihirbaz:not(.modulex-surec-adim-sihirbaz--shjs) .modulex-surec-adim-sihirbaz-serit, .modulex-surec-adim-sihirbaz:not(.modulex-surec-adim-sihirbaz--shjs) .modulex-surec-adim-sihirbaz-gezinti { display: none; }
+  .modulex-surec-adim-sihirbaz-cubuk { position: absolute; inset-inline: 22px; inset-block-start: 21px; height: 4px; border-radius: 4px; background: --cizgi--; }
+  .modulex-surec-adim-sihirbaz-cdolgu { display: block; width: calc(var(--sh) * 100%); height: 100%; border-radius: inherit; background: --accent--; transition: width 0.45s ease; }
+  .modulex-surec-adim-sihirbaz-piller { position: relative; display: flex; justify-content: space-between; gap: 8px; }
+  .modulex-surec-adim-sihirbaz-pilk { flex: 0 1 auto; min-width: 0; }
+  .modulex-surec-adim-sihirbaz-pil { display: grid; justify-items: center; gap: 8px; max-width: 150px; padding: 0; border: 0; background: transparent; color: --muted--; font: inherit; text-align: center; }
+  .modulex-surec-adim-sihirbaz-pno { display: grid; place-items: center; width: 46px; height: 46px; border: 2px solid --cizgi--; border-radius: 50%; background: --bg--; color: --text--; font-weight: 800; font-variant-numeric: tabular-nums; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease; }
+  .modulex-surec-adim-sihirbaz-pad { font-size: 0.85rem; font-weight: 650; line-height: 1.3; }
+  .modulex-surec-adim-sihirbaz-pil:hover .modulex-surec-adim-sihirbaz-pno { border-color: --accent--; transform: scale(1.06); }
+  .modulex-surec-adim-sihirbaz-pil--gecti .modulex-surec-adim-sihirbaz-pno { border-color: --accent--; color: --accentInk--; }
+  .modulex-surec-adim-sihirbaz-pil[aria-current] .modulex-surec-adim-sihirbaz-pno { border-color: --accent--; background-color: --accent--; color: --accentText--; }
+  .modulex-surec-adim-sihirbaz-pil[aria-current] { color: --text--; }
+  .modulex-surec-adim-sihirbaz-sayfalar { display: grid; gap: 18px; }
+  .modulex-surec-adim-sihirbaz--shjs .modulex-surec-adim-sihirbaz-sayfalar { gap: 0; }
+  .modulex-surec-adim-sihirbaz--shjs .modulex-surec-adim-sihirbaz-sayfa { grid-area: 1 / 1; visibility: hidden; transform: translateY(12px); transition: transform 0.4s ease, visibility 0s linear 0.4s; }
+  .modulex-surec-adim-sihirbaz--shjs .modulex-surec-adim-sihirbaz-sayfa--etkin { visibility: visible; transform: none; transition: transform 0.4s ease, visibility 0s; }
+  .modulex-surec-adim-sihirbaz-sayfa { position: relative; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 48px); align-items: center; padding: clamp(22px, 4vw, 44px); border: 1px solid --cizgi--; border-radius: --yuvarlak--; background: --kartBg--; }
+  .modulex-surec-adim-sihirbaz-syazi { display: grid; align-content: start; gap: 10px; }
+  .modulex-surec-adim-sihirbaz-dev { color: --accentInk--; font-size: clamp(3.4rem, 7vw, 5.6rem); font-weight: 900; line-height: 0.9; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
+  .modulex-surec-adim-sihirbaz-syazi .modulex-surec-adim-sihirbaz-kbaslik { font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 800; letter-spacing: -0.02em; }
+  .modulex-surec-adim-sihirbaz-syazi .modulex-surec-adim-sihirbaz-kmetin { color: --muted--; font-size: 1.05rem; line-height: 1.75; }
+  .modulex-surec-adim-sihirbaz-sgorsel { overflow: hidden; border-radius: calc(--yuvarlak-- * 0.8); }
+  .modulex-surec-adim-sihirbaz-sgorsel .modulex-surec-adim-sihirbaz-gorsel { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .modulex-surec-adim-sihirbaz-sgorsel--ikon { display: grid; place-items: center; aspect-ratio: 4 / 3; background: color-mix(in srgb, --accent-- 12%, --bg--); color: --accentInk--; }
+  .modulex-surec-adim-sihirbaz-sikon { font-size: clamp(64px, 9vw, 110px); }
+  .modulex-surec-adim-sihirbaz-gezinti { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .modulex-surec-adim-sihirbaz-yon { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 10px 20px; border: 2px solid --cizgi--; border-radius: 999px; background: transparent; color: --text--; font: inherit; font-weight: 700; transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease; }
+  .modulex-surec-adim-sihirbaz-yon:hover:not(:disabled) { border-color: --accent--; }
+  .modulex-surec-adim-sihirbaz-yon--ileri { border-color: --accent--; background-color: --accent--; color: --accentText--; }
+  .modulex-surec-adim-sihirbaz-yon--ileri:hover:not(:disabled) { background-color: color-mix(in srgb, --accent-- 85%, --text--); }
+  .modulex-surec-adim-sihirbaz-yon:disabled { visibility: hidden; }
+  .modulex-surec-adim-sihirbaz-yon .material-symbols-outlined { font-size: 20px; }
+  .modulex-surec-adim-sihirbaz-sayac { color: --muted--; font-weight: 750; font-variant-numeric: tabular-nums; }
+  @media (max-width: 768px) {
+    .modulex-surec-adim-sihirbaz-pad { display: none; }
+    .modulex-surec-adim-sihirbaz-pno { width: 40px; height: 40px; }
+    .modulex-surec-adim-sihirbaz-cubuk { inset-block-start: 18px; }
+    .modulex-surec-adim-sihirbaz-sayfa { grid-template-columns: minmax(0, 1fr); padding: 20px; }
+    .modulex-surec-adim-sihirbaz-sgorsel { order: -1; }
+    .modulex-surec-adim-sihirbaz-sgorsel--ikon { aspect-ratio: 16 / 7; }
+    .modulex-surec-adim-sihirbaz-sikon { font-size: 56px; }
+    .modulex-surec-adim-sihirbaz-yon { padding: 10px 14px; }
+  }
+  .modulex-surec-adim-sihirbaz-sure { display: inline-flex; align-items: center; gap: 6px; justify-self: start; width: fit-content; padding: 4px 12px; border-radius: 999px; background: color-mix(in srgb, --accent-- 12%, transparent); color: --text--; font-size: 0.85rem; font-weight: 600; }
+  .modulex-surec-adim-sihirbaz-sure .material-symbols-outlined { font-size: 18px; color: --accentInk--; }
+  .modulex-surec-adim-sihirbaz-etiket { color: --accentInk--; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+
+  .modulex-surec-adim-sihirbaz-bag { color: inherit; text-decoration: none; }
+  .modulex-surec-adim-sihirbaz-bag::after { content: ""; position: absolute; inset: 0; z-index: 3; }
+  .modulex-surec-adim-sihirbaz-bag:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-surec-adim-sihirbaz :is(.modulex-surec-adim-sihirbaz-baslik, .modulex-surec-adim-sihirbaz-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-surec-adim-sihirbaz-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-surec-adim-sihirbaz { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-surec-adim-sihirbaz *, .modulex-surec-adim-sihirbaz *::before, .modulex-surec-adim-sihirbaz *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-surec-adim-sihirbaz";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const sihirbaz = (s, P) => {
+        const sy = [...s.querySelectorAll("[data-sh]")];
+        if (sy.length < 2) return;
+        s.classList.add(P + "--shjs");
+        const pil = [...s.querySelectorAll("[data-sh-git]")];
+        const geri = s.querySelector('[data-sh-yon="geri"]');
+        const ileri = s.querySelector('[data-sh-yon="ileri"]');
+        const say = s.querySelector("[data-sh-say]");
+        const kok = s.querySelector("[data-sh-kok]");
+        let nf = null;
+        try { nf = new Intl.NumberFormat(document.documentElement.lang || undefined); } catch (x) { nf = null; }
+        const f = (n) => (nf ? nf.format(n) : String(n));
+        let i = 0;
+        const git = (n) => {
+          i = Math.max(0, Math.min(sy.length - 1, n));
+          sy.forEach((x, j) => { const a = j === i; x.classList.toggle(P + "-sayfa--etkin", a); x.inert = !a; x.setAttribute("aria-hidden", String(!a)); });
+          pil.forEach((b, j) => { b.classList.toggle(P + "-pil--gecti", j < i); if (j === i) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current"); });
+          if (kok) kok.style.setProperty("--sh", (i / (sy.length - 1)).toFixed(3));
+          if (say) say.textContent = `${f(i + 1)} / ${f(sy.length)}`;
+          if (geri) geri.disabled = i === 0;
+          if (ileri) ileri.disabled = i === sy.length - 1;
+        };
+        pil.forEach((b) => b.addEventListener("click", () => git(Number(b.dataset.shGit) || 0)));
+        if (geri) geri.addEventListener("click", () => git(i - 1));
+        if (ileri) ileri.addEventListener("click", () => git(i + 1));
+        git(0);
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      sihirbaz(s, P, az);
+    });
+  })();
+</script>

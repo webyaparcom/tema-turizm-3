@@ -1,0 +1,40 @@
+{
+  "id": "c9emcuqr6x",
+  "name": {
+    "tr": "Rezervasyon",
+    "en": "Booking",
+    "ar": "الحجز"
+  },
+  "description": {
+    "tr": "Oda ve deneyim rezervasyon talebi (demo).",
+    "en": "Room and experience booking request (demo).",
+    "ar": "طلب حجز غرفة أو تجربة (تجريبي)."
+  },
+  "keyword": {
+    "tr": "rezervasyon",
+    "en": "booking",
+    "ar": "حجز"
+  },
+  "path": "teklif-al",
+  "icon": "event",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "9jebcf",
+      "prq0ta"
+    ],
+    "footer": []
+  },
+  "index": 2,
+  "url": "",
+  "text": {},
+  "title": {
+    "tr": "Rezervasyon",
+    "en": "Booking",
+    "ar": "الحجز"
+  },
+  "date": "2026-11-16T20:23:30.125Z",
+  "update": "2026-11-16T20:26:23.803Z"
+}

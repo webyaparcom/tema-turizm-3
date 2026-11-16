@@ -1,0 +1,52 @@
+{
+  "name": "Süreç Adım Sihirbazı — tek tek ilerleyen adım sayfaları",
+  "description": "Başvuru sihirbazı gibi: üstte numaralı adım pilleri ve dolan ilerleme çubuğu, ortada tek bir büyük adım sayfası (dev numara, etiket, başlık, açıklama, süre; yanında görsel ya da ikon karosu), altta Önceki / Sonraki düğmeleri ve «2 / 4» sayacı. Etkin olmayan sayfalar inert ve gizlidir; yükseklik en uzun sayfaya sabitlenir (zıplama yok). JS yokken tüm adımlar alt alta kart listesi, gezinti gizli. surec-akordeon adımları katlanır satırlara, surec-yatay-ray kaydırılan karta, surec-kart-yigin yapışkan yığına döker; bu modül adımları sihirbaz (stepper) gibi tek tek sayfalar: adım pilleri, önceki/sonraki gezintisi, ilerleme çubuğu ve sayaç — aynı anda tek adım görünür, ailede sayfalama yok. Metinler dil sözlüğü, renkler desing + var(--mx-site-*), mantıksal CSS → RTL. Veri yoksa blok basılmaz.",
+  "version": "1.0.0",
+  "icon": "linear_scale",
+  "category": "surec",
+  "subCategory": "stepper-wizard",
+  "tags": [
+    "surec",
+    "stepper",
+    "wizard",
+    "pagination",
+    "progress",
+    "rtl",
+    "fabrika"
+  ],
+  "desing": {
+    "max": "1200px",
+    "bosluk": "clamp(56px, 8vw, 104px)",
+    "yuvarlak": "18px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "bg": "var(--mx-site-bg, #ffffff)",
+    "text": "var(--mx-site-text, #111318)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #111318) 68%, var(--mx-site-bg, #ffffff))",
+    "kartBg": "var(--mx-site-surface, #f6f7f9)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-text, #111318) 12%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 70%, var(--mx-site-text, #111318))",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "vurguBg": "var(--mx-site-primary, #2563eb)",
+    "vurguText": "var(--mx-site-primary-contrast, #ffffff)",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "color": "var(--mx-site-text, #111318)"
+  },
+  "data": [],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "data",
+    "alanlar": {
+      "baslik": "adım adı — dil sözlüğü (zorunlu)",
+      "metin": "adımın açıklaması — dil sözlüğü",
+      "ikon": "Material Symbols adı",
+      "sure": "süre / takvim (ör. «1 hafta») — dil sözlüğü",
+      "no": "elle numara (yoksa 01, 02 …)",
+      "img": "görsel yolu (destekleyen yerleşimde)",
+      "url": "iç/dış bağlantı"
+    }
+  }
+}
