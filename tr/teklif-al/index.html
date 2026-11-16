@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="tr" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <title>Rezervasyon</title>
+  <meta name="description" content="Oda ve deneyim rezervasyon talebi (demo)." />
+  <meta name="keywords" content="rezervasyon" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://turizm-3.webyapar.com/tr/teklif-al/" />
+  <link rel="alternate" hreflang="tr" href="https://turizm-3.webyapar.com/tr/teklif-al/" />
+  <link rel="alternate" hreflang="en" href="https://turizm-3.webyapar.com/en/teklif-al/" />
+  <link rel="alternate" hreflang="ar" href="https://turizm-3.webyapar.com/ar/teklif-al/" />
+  <link rel="alternate" hreflang="x-default" href="https://turizm-3.webyapar.com/tr/teklif-al/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rezervasyon" />
+  <meta property="og:description" content="Oda ve deneyim rezervasyon talebi (demo)." />
+  <meta property="og:url" content="https://turizm-3.webyapar.com/tr/teklif-al/" />
+  <meta property="og:image" content="https://turizm-3.webyapar.com/img/logo.png" />
+  <meta property="og:image:alt" content="Rezervasyon" />
+  <meta property="og:site_name" content="Kayaev Göreme" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_SA" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rezervasyon" />
+  <meta name="twitter:description" content="Oda ve deneyim rezervasyon talebi (demo)." />
+  <meta name="twitter:image" content="https://turizm-3.webyapar.com/img/logo.png" />
+
+  <meta name="theme-color" content="#E8955A" />
+  <meta name="mx-api-base" content="none" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="preload" href="/src/fonts/montserrat/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/src/fonts/montserrat/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/src/fonts/montserrat/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/src/fonts/montserrat/montserrat-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/src/fonts/montserrat/montserrat-latin-ext-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/src/fonts/montserrat/montserrat-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/src/fonts/montserrat.css?v=dfe9cbc9" />
+  <link rel="stylesheet" href="/src/fonts/fraunces.css?v=e82fe383" />
+  <link rel="stylesheet" href="/src/fonts/ibm-plex-sans-arabic.css?v=f0305d2e" />
+  <link rel="stylesheet" href="/src/fonts/noto-naskh-arabic.css?v=a42c3d65" />
+  <link rel="stylesheet" href="/src/rubik.css?v=d8bf8876" />
+  <link rel="stylesheet" href="/src/css.css?v=a258ef88" />
+  <link rel="stylesheet" href="/src/mx-ds.css?v=33d83fcb" />
+  
+  <link rel="stylesheet" href="/src/mx-ui.css?v=1e0459e3" />
+  <link rel="stylesheet" href="/src/material-symbols-outlined.css?v=627a4927" />
+  
+  <link rel="stylesheet" href="/src/cookie.css?v=86fd23c5" />
+  <link rel="stylesheet" href="/src/swiper-bundle.min.css?v=ca16ef6e" />
+  <link rel="shortcut icon" href="/img/icon.png?v=3e53ff7e" type="image/png" />
+  <link rel="apple-touch-icon" href="/img/icon.png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://turizm-3.webyapar.com/#website",
+      "url": "https://turizm-3.webyapar.com/",
+      "name": "Kayaev Göreme",
+      "description": "Kayaev Göreme: kayaya oyulmuş yedi odalı butik konak; albümler, gün planı, mevsim takvimi ve oda/deneyim rezervasyon talebi. Demo site; içerik kurgusaldır.",
+      "inLanguage": "tr",
+      "publisher": {
+        "@id": "https://turizm-3.webyapar.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://turizm-3.webyapar.com/#organization",
+      "name": "Kayaev Göreme",
+      "url": "https://turizm-3.webyapar.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://turizm-3.webyapar.com/img/logo.png"
+      },
+      "image": "https://turizm-3.webyapar.com/img/logo.png",
+      "description": "Kayaev Göreme: kayaya oyulmuş yedi odalı butik konak; albümler, gün planı, mevsim takvimi ve oda/deneyim rezervasyon talebi. Demo site; içerik kurgusaldır."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://turizm-3.webyapar.com/tr/teklif-al/#webpage",
+      "url": "https://turizm-3.webyapar.com/tr/teklif-al/",
+      "name": "Rezervasyon",
+      "description": "Oda ve deneyim rezervasyon talebi (demo).",
+      "inLanguage": "tr",
+      "isPartOf": {
+        "@id": "https://turizm-3.webyapar.com/#website"
+      },
+      "about": {
+        "@id": "https://turizm-3.webyapar.com/#organization"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://turizm-3.webyapar.com/img/logo.png"
+      },
+      "dateModified": "2026-11-16T20:26:23.803Z",
+      "breadcrumb": {
+        "@id": "https://turizm-3.webyapar.com/tr/teklif-al/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://turizm-3.webyapar.com/tr/teklif-al/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Kayaev Göreme",
+          "item": "https://turizm-3.webyapar.com/tr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rezervasyon",
+          "item": "https://turizm-3.webyapar.com/tr/teklif-al/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+  
+<link rel="stylesheet" href="style.css?v=0ffc5e1b">
+</head>
+
+<body>
+  <a class="mx-skip-link" href="#content">İçeriğe atla</a>
+  <script>
+    (function () {
+      window.user = window.user || { id: null, email: null, name: null, isLoggedIn: false, loginMethod: null };
+      var emptySnapshot = { empty: true, forEach: function () {} };
+      var emptyDoc = { exists: false, data: function () { return null; } };
+      if (typeof window.dataAddWeb !== "function") window.dataAddWeb = function () { return Promise.resolve(); };
+      if (typeof window.dataDeleteWeb !== "function") window.dataDeleteWeb = function () { return Promise.resolve(); };
+      if (typeof window.dataUpdateWeb !== "function") window.dataUpdateWeb = function () { return Promise.resolve(); };
+      if (typeof window.dataGetWeb !== "function") window.dataGetWeb = function () { return Promise.resolve(emptyDoc); };
+      if (typeof window.dataListWeb !== "function") window.dataListWeb = function () { return Promise.resolve(emptySnapshot); };
+      if (typeof window.authStateListenerWeb !== "function") {
+        window.authStateListenerWeb = function (cb) {
+          if (typeof cb === "function") setTimeout(function () { cb(null); }, 0);
+        };
+      }
+    })();
+  </script>
+  <div id="header"><div class="h0000-db" id="db-k8db01" role="region" aria-label="Demo site uyarısı" data-tone="info" style="--db-bg:var(--mx-site-text, #1b1b1b);--db-fg:var(--mx-site-bg, #ffffff)">
+  <span class="material-symbols-outlined h0000-db-icon" aria-hidden="true">info</span>
+  <p class="h0000-db-text">Bu bir demo sitedir — içerik kurgusaldır, ödeme alınmaz</p>
+  <a class="h0000-db-cta" href="https://webyapar.com/temalar" target="_blank" rel="noopener noreferrer">
+    <span>Bu temayı iste</span><span class="mx-visually-hidden"> (yeni sekmede açılır)</span>
+    <span class="material-symbols-outlined mx-flip h0000-db-arrow" aria-hidden="true">arrow_forward</span>
+  </a>
+  
+</div>
+<script defer src="https://webyapar.com/api/portal/tema-hata.js"></script>
+
+<script>
+  
+  (function () {
+    var kok = document.getElementById("db-k8db01");
+    if (!kok) {
+      return;
+    }
+    var itilenler = [];
+    var gorulen = [];
+
+    function ustaTasi() {
+      var govde = document.body;
+      if (!govde || kok.parentNode === govde) {
+        return;
+      }
+      var ilk = document.getElementById("header");
+      if (ilk && ilk.parentNode === govde) {
+        govde.insertBefore(kok, ilk);
+      } else {
+        govde.insertBefore(kok, govde.firstChild);
+      }
+    }
+
+    function adayMi(el) {
+      if (el === kok || kok.contains(el) || el.nodeType !== 1) {
+        return false;
+      }
+      var cs = window.getComputedStyle(el);
+      if ((cs.position !== "fixed" && cs.position !== "sticky") || cs.display === "none") {
+        return false;
+      }
+      
+      return parseFloat(cs.top) === 0 && el.offsetHeight > 0 && el.offsetHeight <= 200;
+    }
+
+    function it() {
+      var h = kok.offsetHeight;
+      document.documentElement.style.setProperty("--mx-demo-bandi-h", h + "px");
+      var liste = document.querySelectorAll("#header *, body > *");
+      for (var i = 0; i < liste.length; i++) {
+        var el = liste[i];
+        if (gorulen.indexOf(el) !== -1) {
+          continue;
+        }
+        if (adayMi(el)) {
+          gorulen.push(el);
+          itilenler.push(el);
+        }
+      }
+      for (var j = 0; j < itilenler.length; j++) {
+        itilenler[j].style.top = h + "px";
+      }
+    }
+
+    ustaTasi();
+    it();
+    window.addEventListener("load", function () {
+      ustaTasi();
+      it();
+      setTimeout(it, 400);
+      setTimeout(it, 1500);
+    });
+    window.addEventListener("resize", it);
+    if (window.ResizeObserver) {
+      new window.ResizeObserver(it).observe(kok);
+    }
+  })();
+</script>
+<header class="h0001-ust-yarim-panel h0001-ust-yarim-panel--bassiz" >
+  <div class="h0001-ust-yarim-panel-ic">
+    
+    <div class="h0001-ust-yarim-panel-cubuk"><a class="h0001-ust-yarim-panel-logo" href="/tr/" aria-label="Anasayfa - Kayaev Göreme"><img src="/img/logo.png" alt="Kayaev Göreme" loading="eager" decoding="async" /></a><div class="h0001-ust-yarim-panel-son"><a class="h0001-ust-yarim-panel-cta" href="/tr/teklif-al/">Rezervasyon iste<span class="material-symbols-outlined mx-flip" aria-hidden="true">arrow_forward</span></a><button type="button" class="h0001-ust-yarim-panel-ac" aria-expanded="false" aria-controls="h0001-ust-yarim-panel-vtg2ya-panel" aria-label="Menüyü Aç/Kapat"><span class="h0001-ust-yarim-panel-ac-ikon" aria-hidden="true"><span></span><span></span><span></span></span><span class="h0001-ust-yarim-panel-ac-yazi" aria-hidden="true">Menü</span></button></div></div><nav class="h0001-ust-yarim-panel-nav h0001-ust-yarim-panel-nav--yedek" aria-label="Navigasyon"><ul class="h0001-ust-yarim-panel-liste"><li><a class="h0001-ust-yarim-panel-oge" href="/tr/">Anasayfa</a></li><li><a class="h0001-ust-yarim-panel-oge" href="/tr/hizmetler/">Gün planı</a></li><li><a class="h0001-ust-yarim-panel-oge" href="/tr/hakkimizda/">Konak</a></li><li><a class="h0001-ust-yarim-panel-oge" href="/tr/teklif-al/" aria-current="page">Rezervasyon</a></li><li><a class="h0001-ust-yarim-panel-oge" href="/tr/iletisim/">İletişim</a></li></ul></nav><div class="h0001-ust-yarim-panel-perde" hidden></div><div class="h0001-ust-yarim-panel-panel" id="h0001-ust-yarim-panel-vtg2ya-panel" role="dialog" aria-modal="true" aria-label="Menü" hidden><div class="h0001-ust-yarim-panel-yari h0001-ust-yarim-panel-yari--menu"><div class="h0001-ust-yarim-panel-ptepe"><a class="h0001-ust-yarim-panel-logo" href="/tr/" aria-label="Anasayfa - Kayaev Göreme"><img src="/img/logo.png" alt="Kayaev Göreme" loading="eager" decoding="async" /></a><button type="button" class="h0001-ust-yarim-panel-kapat" aria-label="Menüyü Kapat"><span class="material-symbols-outlined" aria-hidden="true">close</span></button></div><nav aria-label="Navigasyon"><ul class="h0001-ust-yarim-panel-pliste"><li><a class="h0001-ust-yarim-panel-poge" href="/tr/">Anasayfa</a></li><li><a class="h0001-ust-yarim-panel-poge" href="/tr/hizmetler/">Gün planı</a></li><li><a class="h0001-ust-yarim-panel-poge" href="/tr/hakkimizda/">Konak</a></li><li><a class="h0001-ust-yarim-panel-poge" href="/tr/teklif-al/" aria-current="page">Rezervasyon</a></li><li><a class="h0001-ust-yarim-panel-poge" href="/tr/iletisim/">İletişim</a></li></ul></nav></div><div class="h0001-ust-yarim-panel-yari h0001-ust-yarim-panel-yari--bilgi"><div class="h0001-ust-yarim-panel-bilgi"><a class="h0001-ust-yarim-panel-tel" href="tel:+903840846161"><span class="material-symbols-outlined" aria-hidden="true">call</span><bdi dir="ltr">+90 384 084 61 61</bdi></a><a class="h0001-ust-yarim-panel-posta" href="mailto:konak@kayaev.example"><span class="material-symbols-outlined" aria-hidden="true">mail</span><bdi dir="ltr">konak@kayaev.example</bdi></a><a class="h0001-ust-yarim-panel-cta" href="/tr/teklif-al/">Rezervasyon iste<span class="material-symbols-outlined mx-flip" aria-hidden="true">arrow_forward</span></a><div class="h0001-ust-yarim-panel-dil"><nav class="wm-langbar" aria-label="Dil Seçici"><ul><li class="wm-lang-item wm-lang-active"><a href="/tr/teklif-al/" hreflang="tr" lang="tr" aria-current="true">TR</a></li><li class="wm-lang-item"><a href="/en/teklif-al/" hreflang="en" lang="en">EN</a></li><li class="wm-lang-item"><a href="/ar/teklif-al/" hreflang="ar" lang="ar">AR</a></li></ul></nav></div></div></div></div>
+  </div>
+</header>
+
+
+<script>
+  (() => {
+    const P = "h0001-ust-yarim-panel";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const cekmece = (s, P) => {
+          const ac = s.querySelector("." + P + "-ac");
+          const panel = ac ? document.getElementById(ac.getAttribute("aria-controls")) : null;
+          if (!ac || !panel) return;
+          s.classList.add(P + "--js");
+          const perde = s.querySelector("." + P + "-perde");
+          const modal = panel.getAttribute("aria-modal") === "true";
+          const kok = document.documentElement;
+          const kapa = (odak) => {
+            if (panel.hidden) return;
+            panel.hidden = true;
+            if (perde) perde.hidden = true;
+            ac.setAttribute("aria-expanded", "false");
+            s.classList.remove(P + "--acik");
+            if (modal) kok.style.overflow = "";
+            if (odak) ac.focus();
+          };
+          const aci = () => {
+            panel.hidden = false;
+            if (perde) perde.hidden = false;
+            ac.setAttribute("aria-expanded", "true");
+            s.classList.add(P + "--acik");
+            if (modal) kok.style.overflow = "hidden";
+            const ilk = panel.querySelector("a[href], button");
+            if (ilk) ilk.focus();
+          };
+          ac.addEventListener("click", () => (panel.hidden ? aci() : kapa(true)));
+          panel.addEventListener("click", (e) => {
+            if (e.target.closest("." + P + "-kapat")) kapa(true);
+            else if (e.target.closest("a[href]")) kapa(false);
+          });
+          if (perde) perde.addEventListener("click", () => kapa(true));
+          document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !panel.hidden) kapa(true); });
+          if (modal) {
+            panel.addEventListener("keydown", (e) => {
+              if (e.key !== "Tab") return;
+              const o = [...panel.querySelectorAll("a[href], button:not([disabled])")].filter((x) => x.offsetParent !== null);
+              if (!o.length) return;
+              if (e.shiftKey && document.activeElement === o[0]) { e.preventDefault(); o[o.length - 1].focus(); }
+              else if (!e.shiftKey && document.activeElement === o[o.length - 1]) { e.preventDefault(); o[0].focus(); }
+            });
+          }
+          const g = Number(ac.dataset.genis);
+          if (g && window.matchMedia) window.matchMedia(`(min-width: ${g}px)`).addEventListener("change", (m) => { if (m.matches) kapa(false); });
+        };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      cekmece(s, P, az);
+    });
+  })();
+</script>
+</div>
+  <div id="content"><h1 style="position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Rezervasyon</h1><section class="b0000-surec-adim-sihirbaz" aria-labelledby="b0000-surec-adim-sihirbaz-9jebcf-b">
+  <div class="b0000-surec-adim-sihirbaz-ic">
+    <header class="b0000-surec-adim-sihirbaz-bas"><p class="b0000-surec-adim-sihirbaz-ust">Rezervasyon</p><h2 class="b0000-surec-adim-sihirbaz-baslik" id="b0000-surec-adim-sihirbaz-9jebcf-b">Rezervasyon dört adımda</h2><p class="b0000-surec-adim-sihirbaz-metin">Talep göndermek ödeme değildir; konak onaylayınca kesinleşir. İçerik, fiyatlar ve komşu işletmeler kurgusaldır.</p></header>
+    <div class="b0000-surec-adim-sihirbaz-sihirbaz" data-sh-kok style="--sh: 0"><div class="b0000-surec-adim-sihirbaz-serit"><span class="b0000-surec-adim-sihirbaz-cubuk" aria-hidden="true"><span class="b0000-surec-adim-sihirbaz-cdolgu"></span></span><ol class="b0000-surec-adim-sihirbaz-piller"><li class="b0000-surec-adim-sihirbaz-pilk"><button type="button" class="b0000-surec-adim-sihirbaz-pil" data-sh-git="0"><span class="b0000-surec-adim-sihirbaz-pno">01</span><span class="b0000-surec-adim-sihirbaz-pad">Odanızı seçin</span></button></li><li class="b0000-surec-adim-sihirbaz-pilk"><button type="button" class="b0000-surec-adim-sihirbaz-pil" data-sh-git="1"><span class="b0000-surec-adim-sihirbaz-pno">02</span><span class="b0000-surec-adim-sihirbaz-pad">Varış gününü yazın</span></button></li><li class="b0000-surec-adim-sihirbaz-pilk"><button type="button" class="b0000-surec-adim-sihirbaz-pil" data-sh-git="2"><span class="b0000-surec-adim-sihirbaz-pno">03</span><span class="b0000-surec-adim-sihirbaz-pad">Talebi gönderin</span></button></li><li class="b0000-surec-adim-sihirbaz-pilk"><button type="button" class="b0000-surec-adim-sihirbaz-pil" data-sh-git="3"><span class="b0000-surec-adim-sihirbaz-pno">04</span><span class="b0000-surec-adim-sihirbaz-pad">Yazılı onay</span></button></li></ol></div><ol class="b0000-surec-adim-sihirbaz-sayfalar"><li class="b0000-surec-adim-sihirbaz-sayfa b0000-surec-adim-sihirbaz-sayfa--etkin" data-sh><div class="b0000-surec-adim-sihirbaz-syazi"><span class="b0000-surec-adim-sihirbaz-dev" aria-hidden="true">01</span><p class="b0000-surec-adim-sihirbaz-etiket">Adım 1</p><h3 class="b0000-surec-adim-sihirbaz-kbaslik">Odanızı seçin</h3><p class="b0000-surec-adim-sihirbaz-kmetin">Albümlerden odaya bakın; aşağıdaki vitrinde oda ya da deneyimi işaretleyin.</p><p class="b0000-surec-adim-sihirbaz-sure"><span class="material-symbols-outlined" aria-hidden="true">schedule</span>2 dakika</p></div><div class="b0000-surec-adim-sihirbaz-sgorsel"><img class="b0000-surec-adim-sihirbaz-gorsel" src="/img/otel-oda-2.webp" alt="" width="800" height="560" loading="lazy" decoding="async" /></div></li><li class="b0000-surec-adim-sihirbaz-sayfa" data-sh><div class="b0000-surec-adim-sihirbaz-syazi"><span class="b0000-surec-adim-sihirbaz-dev" aria-hidden="true">02</span><p class="b0000-surec-adim-sihirbaz-etiket">Adım 2</p><h3 class="b0000-surec-adim-sihirbaz-kbaslik">Varış gününü yazın</h3><p class="b0000-surec-adim-sihirbaz-kmetin">Varış günü ve saati; kaç gece kalacağınızı not alanına ekleyin.</p><p class="b0000-surec-adim-sihirbaz-sure"><span class="material-symbols-outlined" aria-hidden="true">schedule</span>1 dakika</p></div><div class="b0000-surec-adim-sihirbaz-sgorsel"><img class="b0000-surec-adim-sihirbaz-gorsel" src="/img/restoran-mekan-1.webp" alt="" width="800" height="560" loading="lazy" decoding="async" /></div></li><li class="b0000-surec-adim-sihirbaz-sayfa" data-sh><div class="b0000-surec-adim-sihirbaz-syazi"><span class="b0000-surec-adim-sihirbaz-dev" aria-hidden="true">03</span><p class="b0000-surec-adim-sihirbaz-etiket">Adım 3</p><h3 class="b0000-surec-adim-sihirbaz-kbaslik">Talebi gönderin</h3><p class="b0000-surec-adim-sihirbaz-kmetin">Talep WhatsApp’ta hazır açılır; dilerseniz e-posta da yazabilirsiniz.</p><p class="b0000-surec-adim-sihirbaz-sure"><span class="material-symbols-outlined" aria-hidden="true">schedule</span>Hemen</p></div><div class="b0000-surec-adim-sihirbaz-sgorsel"><img class="b0000-surec-adim-sihirbaz-gorsel" src="/img/otel-resepsiyon.webp" alt="" width="800" height="560" loading="lazy" decoding="async" /></div></li><li class="b0000-surec-adim-sihirbaz-sayfa" data-sh><div class="b0000-surec-adim-sihirbaz-syazi"><span class="b0000-surec-adim-sihirbaz-dev" aria-hidden="true">04</span><p class="b0000-surec-adim-sihirbaz-etiket">Adım 4</p><h3 class="b0000-surec-adim-sihirbaz-kbaslik">Yazılı onay</h3><p class="b0000-surec-adim-sihirbaz-kmetin">Konak aynı gün içinde müsaitliği ve iptal koşullarını yazılı bildirir.</p><p class="b0000-surec-adim-sihirbaz-sure"><span class="material-symbols-outlined" aria-hidden="true">schedule</span>Aynı gün</p></div><div class="b0000-surec-adim-sihirbaz-sgorsel"><img class="b0000-surec-adim-sihirbaz-gorsel" src="/img/otel-kahvalti.webp" alt="" width="800" height="560" loading="lazy" decoding="async" /></div></li></ol><div class="b0000-surec-adim-sihirbaz-gezinti"><button type="button" class="b0000-surec-adim-sihirbaz-yon" data-sh-yon="geri"><span class="material-symbols-outlined mx-flip" aria-hidden="true">arrow_back</span><span>Önceki</span></button><p class="b0000-surec-adim-sihirbaz-sayac" aria-live="polite"><bdi dir="ltr" data-sh-say>1 / 4</bdi></p><button type="button" class="b0000-surec-adim-sihirbaz-yon b0000-surec-adim-sihirbaz-yon--ileri" data-sh-yon="ileri"><span>Sonraki</span><span class="material-symbols-outlined mx-flip" aria-hidden="true">arrow_forward</span></button></div></div>
+  </div>
+</section>
+
+
+<script>
+  (() => {
+    const P = "b0000-surec-adim-sihirbaz";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const sihirbaz = (s, P) => {
+        const sy = [...s.querySelectorAll("[data-sh]")];
+        if (sy.length < 2) return;
+        s.classList.add(P + "--shjs");
+        const pil = [...s.querySelectorAll("[data-sh-git]")];
+        const geri = s.querySelector('[data-sh-yon="geri"]');
+        const ileri = s.querySelector('[data-sh-yon="ileri"]');
+        const say = s.querySelector("[data-sh-say]");
+        const kok = s.querySelector("[data-sh-kok]");
+        let nf = null;
+        try { nf = new Intl.NumberFormat(document.documentElement.lang || undefined); } catch (x) { nf = null; }
+        const f = (n) => (nf ? nf.format(n) : String(n));
+        let i = 0;
+        const git = (n) => {
+          i = Math.max(0, Math.min(sy.length - 1, n));
+          sy.forEach((x, j) => { const a = j === i; x.classList.toggle(P + "-sayfa--etkin", a); x.inert = !a; x.setAttribute("aria-hidden", String(!a)); });
+          pil.forEach((b, j) => { b.classList.toggle(P + "-pil--gecti", j < i); if (j === i) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current"); });
+          if (kok) kok.style.setProperty("--sh", (i / (sy.length - 1)).toFixed(3));
+          if (say) say.textContent = `${f(i + 1)} / ${f(sy.length)}`;
+          if (geri) geri.disabled = i === 0;
+          if (ileri) ileri.disabled = i === sy.length - 1;
+        };
+        pil.forEach((b) => b.addEventListener("click", () => git(Number(b.dataset.shGit) || 0)));
+        if (geri) geri.addEventListener("click", () => git(i - 1));
+        if (ileri) ileri.addEventListener("click", () => git(i + 1));
+        git(0);
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      sihirbaz(s, P, az);
+    });
+  })();
+</script>
+<section class="b0001-randevu-hizmet-vitrin" aria-labelledby="b0001-randevu-hizmet-vitrin-prq0ta-b">
+  <div class="b0001-randevu-hizmet-vitrin-ic">
+    <header class="b0001-randevu-hizmet-vitrin-bas"><p class="b0001-randevu-hizmet-vitrin-ust">Rezervasyon</p><h2 class="b0001-randevu-hizmet-vitrin-baslik" id="b0001-randevu-hizmet-vitrin-prq0ta-b">Oda ya da deneyim seçin</h2><p class="b0001-randevu-hizmet-vitrin-metin">Fiyatlar gecelik ya da kişi başı örnek tutarlardır; konak onayıyla kesinleşir. Bu form demodur; veri saklanmaz. Balon uçuşunu konak değil, lisanslı balon işletmeleri yapar; uçuş hava koşuluna bağlıdır ve iptal edilebilir.</p></header>
+    <form class="b0001-randevu-hizmet-vitrin-form" data-fb-randevu data-gonderim="whatsapp" data-wa="903840846161" data-eposta="konak@kayaev.example" data-action="" data-konu="Rezervasyon talebi" data-ok="Talebiniz hazırlandı; rezervasyon konağın yazılı onayıyla kesinleşir. (Demo)" data-hata="Mesaj gönderilemedi. Lütfen telefon ya da e-postayla ulaşın." data-gunler="1,2,3,4,5,6,7" data-kapali="" data-on-gun="1" data-azami-gun="240" data-kapali-mesaj="Seçilen gün kapalıyız; lütfen başka bir gün seçin." data-sure="60" data-yer="Uzundere Sokak No: 9, Aydınlı Mahallesi, Göreme, Nevşehir (kurgusal adres)"><fieldset class="b0001-randevu-hizmet-vitrin-grup b0001-randevu-hizmet-vitrin-vitrin"><legend class="b0001-randevu-hizmet-vitrin-etiket">Oda / deneyim<span class="b0001-randevu-hizmet-vitrin-zor" aria-hidden="true"> *</span></legend><div class="b0001-randevu-hizmet-vitrin-vkartlar"><label class="b0001-randevu-hizmet-vitrin-vkart"><input class="b0001-randevu-hizmet-vitrin-radyo" type="radio" name="service" value="h1" data-metin="Kemer oda · gecelik · 4.200 ₺" data-etiket="Oda / deneyim" required data-sure="0" /><span class="b0001-randevu-hizmet-vitrin-hic"><img class="b0001-randevu-hizmet-vitrin-vgorsel" src="/img/otel-oda-1.webp" alt="" width="640" height="420" loading="lazy" decoding="async" /><span class="b0001-randevu-hizmet-vitrin-vyazi"><b class="b0001-randevu-hizmet-vitrin-had">Kemer oda · gecelik</b><small class="b0001-randevu-hizmet-vitrin-halt">4.200 ₺</small><span class="b0001-randevu-hizmet-vitrin-hmetin">İki kişi, kahvaltı dahil (örnek).</span></span></span></label><label class="b0001-randevu-hizmet-vitrin-vkart"><input class="b0001-randevu-hizmet-vitrin-radyo" type="radio" name="service" value="h2" data-metin="Balkonlu oda · gecelik · 5.200 ₺" data-etiket="Oda / deneyim" data-sure="0" /><span class="b0001-randevu-hizmet-vitrin-hic"><img class="b0001-randevu-hizmet-vitrin-vgorsel" src="/img/otel-oda-2.webp" alt="" width="640" height="420" loading="lazy" decoding="async" /><span class="b0001-randevu-hizmet-vitrin-vyazi"><b class="b0001-randevu-hizmet-vitrin-had">Balkonlu oda · gecelik</b><small class="b0001-randevu-hizmet-vitrin-halt">5.200 ₺</small><span class="b0001-randevu-hizmet-vitrin-hmetin">Vadiye bakan balkon, kahvaltı dahil (örnek).</span></span></span></label><label class="b0001-randevu-hizmet-vitrin-vkart"><input class="b0001-randevu-hizmet-vitrin-radyo" type="radio" name="service" value="h3" data-metin="Aile süiti · gecelik · 6.900 ₺" data-etiket="Oda / deneyim" data-sure="0" /><span class="b0001-randevu-hizmet-vitrin-hic"><img class="b0001-randevu-hizmet-vitrin-vgorsel" src="/img/otel-oda-3.webp" alt="" width="640" height="420" loading="lazy" decoding="async" /><span class="b0001-randevu-hizmet-vitrin-vyazi"><b class="b0001-randevu-hizmet-vitrin-had">Aile süiti · gecelik</b><small class="b0001-randevu-hizmet-vitrin-halt">6.900 ₺</small><span class="b0001-randevu-hizmet-vitrin-hmetin">Dört kişiye kadar (örnek).</span></span></span></label><label class="b0001-randevu-hizmet-vitrin-vkart"><input class="b0001-randevu-hizmet-vitrin-radyo" type="radio" name="service" value="h4" data-metin="Çömlek atölyesi (Avanos) · 180 dk · 950 ₺" data-etiket="Oda / deneyim" data-sure="180" /><span class="b0001-randevu-hizmet-vitrin-hic"><img class="b0001-randevu-hizmet-vitrin-vgorsel" src="/img/dekor-lifestyle-3.webp" alt="" width="640" height="420" loading="lazy" decoding="async" /><span class="b0001-randevu-hizmet-vitrin-vyazi"><b class="b0001-randevu-hizmet-vitrin-had">Çömlek atölyesi (Avanos)</b><small class="b0001-randevu-hizmet-vitrin-halt">180 dk · 950 ₺</small><span class="b0001-randevu-hizmet-vitrin-hmetin">Kişi başı, transfer dahil (örnek).</span></span></span></label><label class="b0001-randevu-hizmet-vitrin-vkart"><input class="b0001-randevu-hizmet-vitrin-radyo" type="radio" name="service" value="h5" data-metin="Avlu akşam sofrası · 120 dk · 1.150 ₺" data-etiket="Oda / deneyim" data-sure="120" /><span class="b0001-randevu-hizmet-vitrin-hic"><img class="b0001-randevu-hizmet-vitrin-vgorsel" src="/img/restoran-hero-yemek.webp" alt="" width="640" height="420" loading="lazy" decoding="async" /><span class="b0001-randevu-hizmet-vitrin-vyazi"><b class="b0001-randevu-hizmet-vitrin-had">Avlu akşam sofrası</b><small class="b0001-randevu-hizmet-vitrin-halt">120 dk · 1.150 ₺</small><span class="b0001-randevu-hizmet-vitrin-hmetin">Kişi başı, bir gün önceden (örnek).</span></span></span></label><label class="b0001-randevu-hizmet-vitrin-vkart"><input class="b0001-randevu-hizmet-vitrin-radyo" type="radio" name="service" value="h6" data-metin="Teras kahvaltısı (konaklamasız) · 60 dk · 480 ₺" data-etiket="Oda / deneyim" data-sure="60" /><span class="b0001-randevu-hizmet-vitrin-hic"><img class="b0001-randevu-hizmet-vitrin-vgorsel" src="/img/otel-kahvalti.webp" alt="" width="640" height="420" loading="lazy" decoding="async" /><span class="b0001-randevu-hizmet-vitrin-vyazi"><b class="b0001-randevu-hizmet-vitrin-had">Teras kahvaltısı (konaklamasız)</b><small class="b0001-randevu-hizmet-vitrin-halt">60 dk · 480 ₺</small><span class="b0001-randevu-hizmet-vitrin-hmetin">Kişi başı (örnek).</span></span></span></label></div></fieldset><div class="b0001-randevu-hizmet-vitrin-cubuk"><div class="b0001-randevu-hizmet-vitrin-calanlar"><div class="b0001-randevu-hizmet-vitrin-alan b0001-randevu-hizmet-vitrin-alan--tarih" data-tarih-alan><label class="b0001-randevu-hizmet-vitrin-etiket" for="b0001-randevu-hizmet-vitrin-prq0ta-date">Varış günü<span class="b0001-randevu-hizmet-vitrin-zor" aria-hidden="true"> *</span></label><input class="b0001-randevu-hizmet-vitrin-girdi" id="b0001-randevu-hizmet-vitrin-prq0ta-date" name="date" type="date" data-etiket="Varış günü" required /></div><div class="b0001-randevu-hizmet-vitrin-alan"><label class="b0001-randevu-hizmet-vitrin-etiket" for="b0001-randevu-hizmet-vitrin-prq0ta-time">Varış saati<span class="b0001-randevu-hizmet-vitrin-zor" aria-hidden="true"> *</span></label><select class="b0001-randevu-hizmet-vitrin-girdi b0001-randevu-hizmet-vitrin-secim" id="b0001-randevu-hizmet-vitrin-prq0ta-time" name="time" data-etiket="Varış saati" required><option value="">Seçiniz</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option></select></div><div class="b0001-randevu-hizmet-vitrin-alan"><label class="b0001-randevu-hizmet-vitrin-etiket" for="b0001-randevu-hizmet-vitrin-prq0ta-name">Adınız ve Soyadınız<span class="b0001-randevu-hizmet-vitrin-zor" aria-hidden="true"> *</span></label><input class="b0001-randevu-hizmet-vitrin-girdi" id="b0001-randevu-hizmet-vitrin-prq0ta-name" name="name" type="text" data-etiket="Adınız ve Soyadınız" autocomplete="name" required /></div><div class="b0001-randevu-hizmet-vitrin-alan"><label class="b0001-randevu-hizmet-vitrin-etiket" for="b0001-randevu-hizmet-vitrin-prq0ta-phone">Telefon<span class="b0001-randevu-hizmet-vitrin-zor" aria-hidden="true"> *</span></label><input class="b0001-randevu-hizmet-vitrin-girdi" id="b0001-randevu-hizmet-vitrin-prq0ta-phone" name="phone" type="tel" data-etiket="Telefon" autocomplete="tel" required inputmode="tel" minlength="7" /></div><div class="b0001-randevu-hizmet-vitrin-alan"><label class="b0001-randevu-hizmet-vitrin-etiket" for="b0001-randevu-hizmet-vitrin-prq0ta-email">E-posta</label><input class="b0001-randevu-hizmet-vitrin-girdi" id="b0001-randevu-hizmet-vitrin-prq0ta-email" name="email" type="email" data-etiket="E-posta" autocomplete="email" /></div></div><div class="b0001-randevu-hizmet-vitrin-gkap"><button type="submit" class="b0001-randevu-hizmet-vitrin-dugme b0001-randevu-hizmet-vitrin-gonder" data-son>Rezervasyon talebi gönder<span class="material-symbols-outlined" aria-hidden="true">chat</span></button><p class="b0001-randevu-hizmet-vitrin-durum" role="status" aria-live="polite"></p></div></div><div class="b0001-randevu-hizmet-vitrin-ek"><div class="b0001-randevu-hizmet-vitrin-alan b0001-randevu-hizmet-vitrin-alan--genis"><label class="b0001-randevu-hizmet-vitrin-etiket" for="b0001-randevu-hizmet-vitrin-prq0ta-message">Not (kaç gece, kaç kişi)</label><textarea class="b0001-randevu-hizmet-vitrin-girdi" id="b0001-randevu-hizmet-vitrin-prq0ta-message" name="message" rows="3" data-etiket="Not (kaç gece, kaç kişi)"></textarea></div><div class="b0001-randevu-hizmet-vitrin-onay"><input type="checkbox" class="b0001-randevu-hizmet-vitrin-onaykutu" id="b0001-randevu-hizmet-vitrin-prq0ta-kvkk" name="kvkk" required /><label for="b0001-randevu-hizmet-vitrin-prq0ta-kvkk">Kişisel verilerimin yalnız bu rezervasyon talebinin yanıtlanması için işlenmesine ilişkin aydınlatma metnini okudum. <a href="/tr/kisiselveriler/" target="_blank" rel="noopener">Aydınlatma metni</a></label></div></div></form>
+  </div>
+</section>
+
+
+<script>
+  (() => {
+    const P = "b0001-randevu-hizmet-vitrin";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const randevu = (s, P) => {
+        const dl = document.documentElement.lang || undefined;
+        const iso = (t) => `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`;
+        const isoGun = (t) => ((t.getDay() + 6) % 7) + 1;
+        const coz = (v) => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v || ""); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; };
+        const bicim = (o) => { try { return new Intl.DateTimeFormat(dl, o); } catch (x) { return null; } };
+        const uzun = bicim({ weekday: "long", day: "numeric", month: "long", year: "numeric" });
+        const tarihYaz = (v) => { const t = coz(v); return t && uzun ? uzun.format(t) : v || ""; };
+        s.querySelectorAll("form[data-fb-randevu]").forEach((f) => {
+          const d = f.dataset;
+          s.classList.add(P + "--rjs");
+          const gunler = String(d.gunler || "1,2,3,4,5,6,7").split(",").map(Number);
+          const kapali = String(d.kapali || "").split(",").filter(Boolean);
+          const acikMi = (t) => gunler.includes(isoGun(t)) && !kapali.includes(iso(t));
+          const bugun = new Date();
+          bugun.setHours(0, 0, 0, 0);
+          const ilkGun = new Date(bugun);
+          ilkGun.setDate(ilkGun.getDate() + (Number(d.onGun) || 0));
+          const sonGun = new Date(bugun);
+          sonGun.setDate(sonGun.getDate() + (Number(d.azamiGun) || 60));
+          const durum = f.querySelector("[role=status]");
+          const yaz = (m, hata) => { if (durum) { durum.textContent = m || ""; durum.classList.toggle(P + "-durum--hata", !!hata); } };
+          const al = (ad) => { const e = f.elements.namedItem(ad); return e && "value" in e ? String(e.value).trim() : ""; };
+          let t0 = Date.now();
+          
+          const tarih = f.querySelector("input[type=date]");
+          const kontrol = () => { if (!tarih) return; const t = coz(tarih.value); tarih.setCustomValidity(t && !acikMi(t) ? d.kapaliMesaj || "" : ""); };
+          if (tarih) {
+            tarih.min = iso(ilkGun);
+            tarih.max = iso(sonGun);
+            tarih.addEventListener("change", kontrol);
+            tarih.addEventListener("input", kontrol);
+          }
+          
+          const serit = f.querySelector("[data-gun-serit]");
+          if (serit && tarih) {
+            const adet = Number(serit.dataset.gunSerit) || 14;
+            const fa = bicim({ weekday: "short" });
+            const fg = bicim({ day: "numeric" });
+            const fy = bicim({ month: "short" });
+            const t = new Date(ilkGun);
+            let n = 0;
+            for (let g = 0; n < adet && t <= sonGun && g < 400; g++) {
+              if (acikMi(t)) {
+                const l = document.createElement("label");
+                l.className = P + "-gun";
+                const r = document.createElement("input");
+                r.type = "radio";
+                r.name = "date";
+                r.value = iso(t);
+                r.className = P + "-radyo";
+                r.dataset.tarih = "1";
+                r.dataset.etiket = tarih.dataset.etiket || "";
+                if (!n) r.required = true;
+                l.append(r);
+                [[fa, "gad"], [fg, "gno"], [fy, "gay"]].forEach(([b, k]) => { const sp = document.createElement("span"); sp.className = P + "-" + k; sp.textContent = b ? b.format(t) : iso(t); l.append(sp); });
+                serit.append(l);
+                n++;
+              }
+              t.setDate(t.getDate() + 1);
+            }
+            if (n) {
+              const kap = f.querySelector("[data-gun-kap]");
+              const yerel = f.querySelector("[data-tarih-alan]");
+              if (kap) kap.hidden = false;
+              if (yerel) yerel.hidden = true;
+              tarih.disabled = true;
+            }
+          }
+          
+          f.querySelectorAll("[data-arti], [data-eksi]").forEach((b) => b.addEventListener("click", () => {
+            const e = f.querySelector("#" + (b.dataset.arti || b.dataset.eksi));
+            if (!e) return;
+            if (b.dataset.arti) e.stepUp(); else e.stepDown();
+            e.dispatchEvent(new Event("input", { bubbles: true }));
+          }));
+          
+          const satirlar = () => {
+            const out = [];
+            const gor = new Set();
+            [...f.elements].forEach((e) => {
+              if (!e.name || e.disabled || gor.has(e.name) || ["website", "kvkk", "fb-kanal"].includes(e.name) || e.type === "submit" || e.type === "button") return;
+              let v = "";
+              if (e.type === "radio") {
+                const c = [...f.elements].find((x) => x.name === e.name && x.checked && !x.disabled);
+                if (!c) return;
+                v = c.dataset.tarih ? tarihYaz(c.value) : c.dataset.metin || c.value;
+              } else if (e.type === "checkbox") {
+                if (!e.checked) return;
+                v = e.dataset.metin || e.value;
+              } else if (e.tagName === "SELECT") {
+                if (!e.value) return;
+                v = e.options[e.selectedIndex].text.trim();
+              } else if (e.type === "date") v = tarihYaz(e.value);
+              else v = String(e.value).trim();
+              gor.add(e.name);
+              if (v) out.push({ ad: e.name, et: e.dataset.etiket || e.name, v });
+            });
+            return out;
+          };
+          
+          const ozet = () => {
+            const L = satirlar().filter((x) => x.ad !== "message");
+            s.querySelectorAll("[data-ozet]").forEach((o) => {
+              o.replaceChildren(...L.map((x) => { const li = document.createElement("li"); const b = document.createElement("b"); b.textContent = x.et; const sp = document.createElement("span"); sp.textContent = x.v; li.append(b, sp); return li; }));
+            });
+            s.classList.toggle(P + "--ozetli", L.length > 0);
+          };
+          f.addEventListener("input", ozet);
+          f.addEventListener("change", ozet);
+          
+          const adimlar = [...f.querySelectorAll("[data-adim]")];
+          const isaret = [...s.querySelectorAll("[data-adim-isaret]")];
+          let ai = 0;
+          const goster = (n, odak) => {
+            ai = n;
+            adimlar.forEach((a, j) => { a.hidden = j !== n; });
+            isaret.forEach((x, j) => { if (j === n) x.setAttribute("aria-current", "step"); else x.removeAttribute("aria-current"); x.classList.toggle(P + "--tamam", j < n); });
+            s.style.setProperty("--adim", String(adimlar.length > 1 ? n / (adimlar.length - 1) : 1));
+            f.querySelectorAll("[data-geri]").forEach((b) => { b.hidden = n === 0; });
+            f.querySelectorAll("[data-ileri]").forEach((b) => { b.hidden = n === adimlar.length - 1; });
+            f.querySelectorAll("[data-son]").forEach((b) => { b.hidden = n !== adimlar.length - 1; });
+            if (odak) { const g = adimlar[n].querySelector("input:not([type=hidden]):not(:disabled), select, textarea"); if (g) g.focus(); }
+          };
+          if (adimlar.length > 1) {
+            f.querySelectorAll("[data-ileri]").forEach((b) => b.addEventListener("click", () => {
+              const kotu = [...adimlar[ai].querySelectorAll("input, select, textarea")].find((e) => e.willValidate && !e.checkValidity());
+              if (kotu) { kotu.reportValidity(); return; }
+              if (ai < adimlar.length - 1) goster(ai + 1, true);
+            }));
+            f.querySelectorAll("[data-geri]").forEach((b) => b.addEventListener("click", () => { if (ai > 0) goster(ai - 1, true); }));
+            goster(0);
+          }
+          const ics = (metin) => {
+            const t = coz(al("date"));
+            if (!t) return;
+            const sa = /^(\d{1,2}):(\d{2})$/.exec(al("time"));
+            const sec = f.querySelector("select[name=service]");
+            const r = [...f.elements].find((x) => x.name === "service" && x.checked);
+            const dk = Number((r && r.dataset.sure) || (sec && sec.selectedIndex > 0 && sec.options[sec.selectedIndex].dataset.sure) || d.sure) || 30;
+            const z = (x) => `${iso(x).replace(/-/g, "")}T${String(x.getHours()).padStart(2, "0")}${String(x.getMinutes()).padStart(2, "0")}00`;
+            const kac = (x) => String(x).replace(/\\/g, "\\\\").replace(/[,;]/g, (m) => "\\" + m).replace(/\r?\n/g, "\\n");
+            let bas = `DTSTART;VALUE=DATE:${iso(t).replace(/-/g, "")}`;
+            let bit = "";
+            if (sa) {
+              t.setHours(+sa[1], +sa[2]);
+              bas = `DTSTART:${z(t)}`;
+              bit = `DTEND:${z(new Date(t.getTime() + dk * 60000))}`;
+            }
+            const satir = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//webmaker//randevu//", "BEGIN:VEVENT", `UID:${Date.now()}-${Math.random().toString(36).slice(2)}`,
+              `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+/, "")}`, bas, bit, `SUMMARY:${kac(d.konu || document.title)}`, `DESCRIPTION:${kac(metin)}`,
+              d.yer ? `LOCATION:${kac(d.yer)}` : "", "END:VEVENT", "END:VCALENDAR"].filter(Boolean).join("\r\n");
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(new Blob([satir], { type: "text/calendar" }));
+            a.download = "randevu.ics";
+            document.body.append(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+          };
+          f.addEventListener("submit", (e) => {
+            e.preventDefault();
+            if (!f.checkValidity()) {
+              const k = [...f.elements].find((x) => x.willValidate && !x.checkValidity());
+              if (k && adimlar.length > 1) { const j = adimlar.findIndex((a) => a.contains(k)); if (j > -1 && j !== ai) goster(j); }
+              f.reportValidity();
+              return;
+            }
+            if (al("website")) return;
+            const L = satirlar();
+            const metin = (d.konu ? [d.konu, ""] : []).concat(L.map((x) => `${x.et}: ${x.v}`)).join("\n");
+            const kanal = [...f.elements].find((x) => x.name === "fb-kanal" && x.checked);
+            const g = kanal ? kanal.value : d.gonderim;
+            const hizmet = (L.find((x) => x.ad === "service") || {}).v || "";
+            if (d.action) {
+              const b = f.querySelector("[type=submit]");
+              if (b) b.disabled = true;
+              const yuk = { name: al("name"), email: al("email"), phone: al("phone"), topic: hizmet, message: metin, date: al("date"), time: al("time"), guests: al("guests"),
+                kvkk: true, lang: document.documentElement.lang || "", page: location.pathname, website: al("website"), t: Date.now() - t0 };
+              fetch(d.action, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(yuk) })
+                .then((r) => r.json().catch(() => ({})).then((j) => r.ok && j && j.ok !== false))
+                .then((ok) => { if (b) b.disabled = false; yaz(ok ? d.ok : d.hata, !ok); if (ok) { f.reset(); t0 = Date.now(); ozet(); } })
+                .catch(() => { if (b) b.disabled = false; yaz(d.hata, true); });
+              return;
+            }
+            if (g === "whatsapp" && d.wa) window.open(`https://wa.me/${d.wa}?text=${encodeURIComponent(metin)}`, "_blank", "noopener");
+            else if (g === "ics") ics(metin);
+            else if (d.eposta) location.href = `mailto:${d.eposta}?subject=${encodeURIComponent(d.konu || "")}&body=${encodeURIComponent(metin.replace(/\n/g, "\r\n"))}`;
+            else if (d.wa) window.open(`https://wa.me/${d.wa}?text=${encodeURIComponent(metin)}`, "_blank", "noopener");
+            yaz(d.ok, false);
+          });
+          ozet();
+        });
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      randevu(s, P, az);
+    });
+  })();
+</script>
+</div>
+  <div id="footer"><footer class="f0000-alt-bilet f0000-alt-bilet--bassiz" >
+  <div class="f0000-alt-bilet-ic">
+    
+    <div class="f0000-alt-bilet-bl-bilet"><div class="f0000-alt-bilet-bl-kocan"><a class="f0000-alt-bilet-logo" href="/tr/" aria-label="Anasayfa - Kayaev Göreme"><img src="/img/logo.png" alt="Kayaev Göreme" loading="lazy" decoding="async" /></a><p class="f0000-alt-bilet-bl-ad">Kayaev Göreme</p><p class="f0000-alt-bilet-bl-not">Göreme’de kayaya oyulmuş yedi odalı butik konak. İçerik, fiyatlar ve komşu işletmeler kurgusaldır. Görseller temsilîdir.</p><span class="f0000-alt-bilet-bl-barkod" aria-hidden="true"></span></div><div class="f0000-alt-bilet-bl-govde"><div class="f0000-alt-bilet-blok"><h2 class="f0000-alt-bilet-bbaslik">Sayfalar</h2><ul class="f0000-alt-bilet-sayfalar"><li><a class="f0000-alt-bilet-bag" href="/tr/">Anasayfa</a></li><li><a class="f0000-alt-bilet-bag" href="/tr/hizmetler/">Gün planı</a></li><li><a class="f0000-alt-bilet-bag" href="/tr/hakkimizda/">Konak</a></li><li><a class="f0000-alt-bilet-bag" href="/tr/teklif-al/" aria-current="page">Rezervasyon</a></li><li><a class="f0000-alt-bilet-bag" href="/tr/iletisim/">İletişim</a></li></ul></div><div class="f0000-alt-bilet-blok"><h2 class="f0000-alt-bilet-bbaslik">Hızlı bağlantılar</h2><ul class="f0000-alt-bilet-baglantilar"><li><a class="f0000-alt-bilet-bag" href="/tr/hizmetler/">Gün planı</a></li><li><a class="f0000-alt-bilet-bag" href="/tr/hakkimizda/">Konak</a></li><li><a class="f0000-alt-bilet-bag" href="/tr/teklif-al/">Rezervasyon</a></li><li><a class="f0000-alt-bilet-bag" href="/tr/iletisim/">İletişim</a></li></ul></div><div class="f0000-alt-bilet-blok"><h2 class="f0000-alt-bilet-bbaslik">Bize Ulaşın</h2><ul class="f0000-alt-bilet-iletisim"><li class="f0000-alt-bilet-il f0000-alt-bilet-il--adres"><span class="f0000-alt-bilet-il-ikon material-symbols-outlined" aria-hidden="true">location_on</span><span class="f0000-alt-bilet-il-ic"><span>Uzundere Sokak No: 9, Aydınlı Mahallesi, Göreme, Nevşehir (kurgusal adres)</span></span></li><li class="f0000-alt-bilet-il f0000-alt-bilet-il--tel"><span class="f0000-alt-bilet-il-ikon material-symbols-outlined" aria-hidden="true">call</span><span class="f0000-alt-bilet-il-ic"><a class="f0000-alt-bilet-bag" href="tel:+903840846161"><bdi dir="ltr">+90 384 084 61 61</bdi></a></span></li><li class="f0000-alt-bilet-il f0000-alt-bilet-il--posta"><span class="f0000-alt-bilet-il-ikon material-symbols-outlined" aria-hidden="true">mail</span><span class="f0000-alt-bilet-il-ic"><a class="f0000-alt-bilet-bag" href="mailto:konak@kayaev.example"><bdi dir="ltr">konak@kayaev.example</bdi></a></span></li></ul></div><div class="f0000-alt-bilet-blok"><h2 class="f0000-alt-bilet-bbaslik">Saatler</h2><dl class="f0000-alt-bilet-saatler"><div class="f0000-alt-bilet-saat"><dt>Resepsiyon</dt><dd><bdi dir="ltr">07:00 – 23:00</bdi></dd></div><div class="f0000-alt-bilet-saat"><dt>Teras</dt><dd><bdi dir="ltr">Gün doğumu</bdi></dd></div></dl></div></div></div><div class="f0000-alt-bilet-bl-son"><p class="f0000-alt-bilet-telif"><span>&copy; 2026 Kayaev Göreme</span><span>Tüm hakları saklıdır</span></p><ul class="f0000-alt-bilet-bl-yasal"><li><a class="f0000-alt-bilet-bag" href="/tr/kisiselveriler/">KVKK</a></li><li><a class="f0000-alt-bilet-bag" href="/tr/gizlilikpolitikasi/">Gizlilik</a></li><li><a class="f0000-alt-bilet-bag" href="/tr/yasaluyari/">Yasal uyarı</a></li></ul><div class="f0000-alt-bilet-dil"><nav class="wm-langbar" aria-label="Dil Seçici"><ul><li class="wm-lang-item wm-lang-active"><a href="/tr/teklif-al/" hreflang="tr" lang="tr" aria-current="true">TR</a></li><li class="wm-lang-item"><a href="/en/teklif-al/" hreflang="en" lang="en">EN</a></li><li class="wm-lang-item"><a href="/ar/teklif-al/" hreflang="ar" lang="ar">AR</a></li></ul></nav></div><a class="f0000-alt-bilet-yukari" href="#" aria-label="Başa dön"><span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span></a></div>
+  </div>
+</footer>
+
+
+<div class="f0001-dk" role="contentinfo" aria-label="Demo bilgisi">
+  <p class="f0001-dk-text">Bu demo <bdi class="f0001-dk-brand" dir="ltr">Webyapar</bdi> tarafından hazırlanmıştır — <a class="f0001-dk-cta" href="https://webyapar.com/temalar#turizm-3" target="_blank" rel="noopener noreferrer"><span>Bu temayı iste</span><span class="mx-visually-hidden"> (yeni sekmede açılır)</span><span class="material-symbols-outlined mx-flip f0001-dk-arrow" aria-hidden="true">arrow_forward</span></a></p>
+</div>
+
+<nav class="wm-yasal" aria-label="Kurumsal ve Yasal" style="box-sizing:border-box;width:100%;max-width:100%;padding:12px 16px;background:var(--mx-site-bg, #12151B);color:var(--mx-site-text, #ffffff);display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center;justify-content:center;text-align:center;overflow-wrap:anywhere"><strong style="color:var(--mx-site-text, #ffffff)">Kurumsal ve Yasal</strong><a href="/tr/misyon/" style="color:var(--mx-site-text, #ffffff);padding:6px 0;text-decoration:underline;min-width:0">Misyon</a><a href="/tr/vizyon/" style="color:var(--mx-site-text, #ffffff);padding:6px 0;text-decoration:underline;min-width:0">Vizyon</a><a href="/tr/kalitepolitikamiz/" style="color:var(--mx-site-text, #ffffff);padding:6px 0;text-decoration:underline;min-width:0">Kalite Politikamız</a><a href="/tr/kullanicahaklari/" style="color:var(--mx-site-text, #ffffff);padding:6px 0;text-decoration:underline;min-width:0">Kullanıcı Hakları</a></nav></div>
+
+  
+
+  <script defer src="/src/swiper-bundle.min.js"></script>
+  <script defer src="/src/mx-ui.js?v=5c89ee1c"></script>
+  <script defer src="/src/mx-store.js?v=76e4af87"></script>
+  <script defer type="text/javascript" src="/src/js.js?v=b2eba89f"></script>
+  <script defer src="/src/cookie.js?v=120cf97b"></script>
+
+</body>
+
+</html>

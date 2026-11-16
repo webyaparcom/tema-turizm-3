@@ -1,0 +1,48 @@
+{
+  "name": {
+    "tr": "Konak",
+    "en": "The house",
+    "ar": "البيت"
+  },
+  "status": "play",
+  "category": "",
+  "id": "hakkimizda",
+  "url": "",
+  "path": "hakkimizda",
+  "index": 1,
+  "icon": "photo_album",
+  "desing": {
+    "header": [],
+    "body": [
+      "x3n8ww",
+      "4llsve",
+      "gatu0p"
+    ],
+    "footer": []
+  },
+  "pathnext": "",
+  "description": {
+    "tr": "Albümler, komşu işletmeler ve sorular (kurgusal).",
+    "en": "Albums, neighbouring businesses and questions (fictional).",
+    "ar": "الألبومات والجهات المجاورة والأسئلة (افتراضي)."
+  },
+  "spot": {
+    "tr": "",
+    "en": "",
+    "ar": ""
+  },
+  "desc": {},
+  "title": {
+    "tr": "Konak",
+    "en": "The house",
+    "ar": "البيت"
+  },
+  "keyword": {
+    "tr": "hakkımızda",
+    "en": "about",
+    "ar": "من نحن"
+  },
+  "text": {},
+  "update": "2026-11-16T20:26:23.798Z",
+  "date": "2026-10-30"
+}

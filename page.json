@@ -1,0 +1,114 @@
+{
+  "data": [
+    {
+      "id": "0qj2osfczq",
+      "name": {
+        "tr": "Gün planı",
+        "en": "Day plan",
+        "ar": "برنامج اليوم"
+      },
+      "description": {
+        "tr": "Konakta bir gün ve mevsim takvimi.",
+        "en": "A day at the house and the season calendar.",
+        "ar": "يوم في البيت وتقويم المواسم."
+      },
+      "path": "hizmetler",
+      "icon": "schedule",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "iz1i79",
+          "q18bz9"
+        ],
+        "footer": []
+      },
+      "index": 0
+    },
+    {
+      "name": {
+        "tr": "Konak",
+        "en": "The house",
+        "ar": "البيت"
+      },
+      "status": "play",
+      "id": "hakkimizda",
+      "path": "hakkimizda",
+      "category": "",
+      "url": "",
+      "index": 1,
+      "icon": "photo_album",
+      "desing": {
+        "header": [],
+        "body": [
+          "x3n8ww",
+          "4llsve",
+          "gatu0p"
+        ],
+        "footer": []
+      },
+      "pathnext": "",
+      "description": {
+        "tr": "Albümler, komşu işletmeler ve sorular (kurgusal).",
+        "en": "Albums, neighbouring businesses and questions (fictional).",
+        "ar": "الألبومات والجهات المجاورة والأسئلة (افتراضي)."
+      }
+    },
+    {
+      "id": "c9emcuqr6x",
+      "name": {
+        "tr": "Rezervasyon",
+        "en": "Booking",
+        "ar": "الحجز"
+      },
+      "description": {
+        "tr": "Oda ve deneyim rezervasyon talebi (demo).",
+        "en": "Room and experience booking request (demo).",
+        "ar": "طلب حجز غرفة أو تجربة (تجريبي)."
+      },
+      "path": "teklif-al",
+      "icon": "event",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "9jebcf",
+          "prq0ta"
+        ],
+        "footer": []
+      },
+      "index": 2
+    },
+    {
+      "name": {
+        "tr": "İletişim",
+        "en": "Contact",
+        "ar": "اتصل بنا"
+      },
+      "status": "play",
+      "id": "iletisim",
+      "path": "iletisim",
+      "category": "",
+      "url": "",
+      "index": 3,
+      "icon": "call",
+      "desing": {
+        "header": [],
+        "body": [
+          "usccgs",
+          "k8mp01"
+        ],
+        "footer": []
+      },
+      "pathnext": "",
+      "description": {
+        "tr": "Telefon, WhatsApp, adres ve saatler.",
+        "en": "Phone, WhatsApp, address and hours.",
+        "ar": "الهاتف وواتساب والعنوان والساعات."
+      }
+    }
+  ],
+  "desc": []
+}

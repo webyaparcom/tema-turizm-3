@@ -1,0 +1,29 @@
+{
+  "name": "Kayaev Göreme",
+  "short_name": "Kayaev Görem",
+  "description": "Kayaev Göreme: kayaya oyulmuş yedi odalı butik konak; albümler, gün planı, mevsim takvimi ve oda/deneyim rezervasyon talebi. Demo site; içerik kurgusaldır.",
+  "start_url": "/tr/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#E8955A",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "/img/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
