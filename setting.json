@@ -4,12 +4,16 @@
   "description": {
     "tr": "Kayaev Göreme: kayaya oyulmuş yedi odalı butik konak; albümler, gün planı, mevsim takvimi ve oda/deneyim rezervasyon talebi. Demo site; içerik kurgusaldır.",
     "en": "Kayaev Goreme: a seven-room boutique house carved into the rock; albums, a day plan, a season calendar and room/experience booking requests. Demo site; content is fictional.",
-    "ar": "كاياييف غوريمه: بيت ضيافة صغير من سبع غرف منحوت في الصخر؛ ألبومات وبرنامج يومي وتقويم للمواسم وطلب حجز للغرف والتجارب. موقع تجريبي؛ المحتوى افتراضي."
+    "ar": "كاياييف غوريمه: بيت ضيافة صغير من سبع غرف منحوت في الصخر؛ ألبومات وبرنامج يومي وتقويم للمواسم وطلب حجز للغرف والتجارب. موقع تجريبي؛ المحتوى افتراضي.",
+    "de": "Kayaev Göreme: ein sieben-Zimmer-Boutique-Haus, in den Fels gehauen; Alben, Tagesplan, Saisonkalender und Buchungsanfragen für Zimmer/Erfahrungen. Demo-Seite; Inhalte sind fiktiv.",
+    "ru": "Kayaev Göreme: бутик-гостевой дом на семь комнат, высеченный в скале; альбомы, план дня, сезонный календарь и заявки на бронирование номеров/опытов. Демо-сайт; контент вымышленный."
   },
   "keyword": {
     "tr": "kaya otel, göreme, kapadokya, butik konak, vadi yürüyüşü, rezervasyon",
     "en": "cave hotel, goreme, cappadocia, boutique house, valley walk, booking",
-    "ar": "فندق كهفي، غوريمه، كبادوكيا، بيت ضيافة، المشي في الوادي، حجز"
+    "ar": "فندق كهفي، غوريمه، كبادوكيا، بيت ضيافة، المشي في الوادي، حجز",
+    "de": "Felsenhotel, Göreme, Kappadokien, Boutique-Konak, Talwanderung, Reservierung",
+    "ru": "отель в скале, Гёреме, Каппадокия, бутик-особняк, прогулка по долине, бронирование"
   },
   "category": "Kurumsal",
   "name": "Kayaev Göreme",
@@ -18,15 +22,27 @@
     "tr": true,
     "en": true,
     "ar": true,
-    "de": false,
-    "ru": false,
+    "de": true,
+    "ru": true,
     "es": false,
     "fr": false,
     "it": false,
     "ja": false,
     "zh": false,
     "ko": false,
-    "pt": false
+    "pt": false,
+    "fa": false,
+    "he": false,
+    "ur": false,
+    "nl": false,
+    "pl": false,
+    "uk": false,
+    "az": false,
+    "ka": false,
+    "el": false,
+    "bg": false,
+    "ro": false,
+    "hi": false
   },
   "logo": "logo.png",
   "multi": false,

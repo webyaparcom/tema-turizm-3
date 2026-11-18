@@ -3,17 +3,23 @@
   "name": {
     "tr": "Rezervasyon",
     "en": "Booking",
-    "ar": "الحجز"
+    "ar": "الحجز",
+    "de": "Reservierung",
+    "ru": "Бронирование"
   },
   "description": {
     "tr": "Oda ve deneyim rezervasyon talebi (demo).",
     "en": "Room and experience booking request (demo).",
-    "ar": "طلب حجز غرفة أو تجربة (تجريبي)."
+    "ar": "طلب حجز غرفة أو تجربة (تجريبي).",
+    "de": "Buchungsanfrage für Zimmer und Erlebnis (Demo).",
+    "ru": "Заявка на бронирование номера и опыта (демо)."
   },
   "keyword": {
     "tr": "rezervasyon",
     "en": "booking",
-    "ar": "حجز"
+    "ar": "حجز",
+    "de": "Reservierung",
+    "ru": "бронирование"
   },
   "path": "teklif-al",
   "icon": "event",
@@ -33,7 +39,9 @@
   "title": {
     "tr": "Rezervasyon",
     "en": "Booking",
-    "ar": "الحجز"
+    "ar": "الحجز",
+    "de": "Reservierung",
+    "ru": "Бронирование"
   },
   "date": "2026-11-16T20:23:30.125Z",
   "update": "2026-11-16T20:26:23.803Z"
