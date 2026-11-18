@@ -3,17 +3,23 @@
   "name": {
     "tr": "Vizyon",
     "en": "Vision",
-    "ar": "الرؤية"
+    "ar": "الرؤية",
+    "de": "Vision",
+    "ru": "Видение"
   },
   "description": {
     "tr": "Vizyonumuz",
     "en": "Our vision",
-    "ar": "رؤيتنا"
+    "ar": "رؤيتنا",
+    "de": "Unsere Vision",
+    "ru": "Наше видение"
   },
   "keyword": {
     "tr": "Vizyon",
     "en": "vision, our vision, goals",
-    "ar": "الرؤية, رؤيتنا, الأهداف"
+    "ar": "الرؤية, رؤيتنا, الأهداف",
+    "de": "Vision",
+    "ru": "Видение"
   },
   "path": "vizyon",
   "icon": "visibility",
@@ -29,12 +35,16 @@
   "text": {
     "tr": "<h2>Vizyonumuz</h2>\n<p>Göreme’de komşu üreticilerle birlikte büyüyen, az atıklı bir konak olmak.</p>",
     "en": "<h2>Our vision</h2>\n<p>To be a low-waste house in Goreme that grows together with neighbouring producers.</p>",
-    "ar": "<h2>رؤيتنا</h2>\n<p>أن نكون بيتًا قليل النفايات في غوريمه ينمو مع المنتجين المجاورين.</p>"
+    "ar": "<h2>رؤيتنا</h2>\n<p>أن نكون بيتًا قليل النفايات في غوريمه ينمو مع المنتجين المجاورين.</p>",
+    "de": "<h2>Unsere Vision</h2>\n<p>Ein abfallarmes Gästehaus in Göreme zu sein, das gemeinsam mit den Erzeugern der Nachbarschaft wächst.</p>",
+    "ru": "<h2>Наше видение</h2>\n<p>Быть усадьбой в Гёреме с минимумом отходов, которая растёт вместе с соседними производителями.</p>"
   },
   "title": {
     "tr": "Vizyon",
     "en": "Vision",
-    "ar": "الرؤية"
+    "ar": "الرؤية",
+    "de": "Vision",
+    "ru": "Видение"
   },
   "date": "2026-11-16T20:23:29.953Z",
   "update": "2026-11-16T20:26:23.813Z",

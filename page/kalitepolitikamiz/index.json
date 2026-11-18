@@ -3,17 +3,23 @@
   "name": {
     "tr": "Kalite Politikamız",
     "en": "Quality Policy",
-    "ar": "سياسة الجودة"
+    "ar": "سياسة الجودة",
+    "de": "Qualitätspolitik",
+    "ru": "Политика качества"
   },
   "description": {
     "tr": "Kalite politikamız",
     "en": "Our quality policy",
-    "ar": "سياسة الجودة لدينا"
+    "ar": "سياسة الجودة لدينا",
+    "de": "Unsere Qualitätspolitik",
+    "ru": "Наша политика качества"
   },
   "keyword": {
     "tr": "Kalite Politikamız",
     "en": "quality policy, quality, continuous improvement",
-    "ar": "سياسة الجودة, الجودة, التحسين المستمر"
+    "ar": "سياسة الجودة, الجودة, التحسين المستمر",
+    "de": "Qualitätspolitik",
+    "ru": "Политика качества"
   },
   "path": "kalitepolitikamiz",
   "icon": "verified",
@@ -29,12 +35,16 @@
   "text": {
     "tr": "<h2>Kalite Politikamız</h2>\n<p>Yazılı rezervasyon onayı, açık iptal koşulları, balon için yalnız lisanslı işletmeye yönlendirme.</p>",
     "en": "<h2>Our quality policy</h2>\n<p>Written booking confirmation, clear cancellation terms, and referrals only to licensed balloon operators.</p>",
-    "ar": "<h2>سياسة الجودة لدينا</h2>\n<p>تأكيد حجز مكتوب وشروط إلغاء واضحة وإحالة إلى شركات مناطيد مرخّصة فقط.</p>"
+    "ar": "<h2>سياسة الجودة لدينا</h2>\n<p>تأكيد حجز مكتوب وشروط إلغاء واضحة وإحالة إلى شركات مناطيد مرخّصة فقط.</p>",
+    "de": "<h2>Unsere Qualitätsrichtlinie</h2>\n<p>Schriftliche Buchungsbestätigung, klare Stornierungsbedingungen und Verweisung nur an lizenzierte Ballonbetreiber.</p>",
+    "ru": "<h2>Наша политика качества</h2>\n<p>Письменное подтверждение бронирования, четкие условия отмены и направление только к лицензированным операторам воздушных шаров.</p>"
   },
   "title": {
     "tr": "Kalite Politikamız",
     "en": "Quality Policy",
-    "ar": "سياسة الجودة"
+    "ar": "سياسة الجودة",
+    "de": "Qualitätspolitik",
+    "ru": "Политика качества"
   },
   "date": "2026-11-16T20:23:29.953Z",
   "update": "2026-11-16T20:26:23.815Z",

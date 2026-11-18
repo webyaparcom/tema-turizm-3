@@ -5,12 +5,16 @@
       "name": {
         "tr": "Gün planı",
         "en": "Day plan",
-        "ar": "برنامج اليوم"
+        "ar": "برنامج اليوم",
+        "de": "Tagesplan",
+        "ru": "Расписание"
       },
       "description": {
         "tr": "Konakta bir gün ve mevsim takvimi.",
         "en": "A day at the house and the season calendar.",
-        "ar": "يوم في البيت وتقويم المواسم."
+        "ar": "يوم في البيت وتقويم المواسم.",
+        "de": "Ein Tag im Herrenhaus und der Saisonkalender.",
+        "ru": "День в усадьбе и сезонный календарь."
       },
       "path": "hizmetler",
       "icon": "schedule",
@@ -30,7 +34,9 @@
       "name": {
         "tr": "Konak",
         "en": "The house",
-        "ar": "البيت"
+        "ar": "البيت",
+        "de": "Haus",
+        "ru": "Дом"
       },
       "status": "play",
       "id": "hakkimizda",
@@ -52,7 +58,9 @@
       "description": {
         "tr": "Albümler, komşu işletmeler ve sorular (kurgusal).",
         "en": "Albums, neighbouring businesses and questions (fictional).",
-        "ar": "الألبومات والجهات المجاورة والأسئلة (افتراضي)."
+        "ar": "الألبومات والجهات المجاورة والأسئلة (افتراضي).",
+        "de": "Alben, Nachbarbetriebe und Fragen (fiktiv).",
+        "ru": "Альбомы, соседние заведения и вопросы (вымышленные)."
       }
     },
     {
@@ -60,12 +68,16 @@
       "name": {
         "tr": "Rezervasyon",
         "en": "Booking",
-        "ar": "الحجز"
+        "ar": "الحجز",
+        "de": "Reservierung",
+        "ru": "Бронирование"
       },
       "description": {
         "tr": "Oda ve deneyim rezervasyon talebi (demo).",
         "en": "Room and experience booking request (demo).",
-        "ar": "طلب حجز غرفة أو تجربة (تجريبي)."
+        "ar": "طلب حجز غرفة أو تجربة (تجريبي).",
+        "de": "Buchungsanfrage für Zimmer und Erlebnis (Demo).",
+        "ru": "Заявка на бронирование номера и опыта (демо)."
       },
       "path": "teklif-al",
       "icon": "event",
@@ -85,7 +97,9 @@
       "name": {
         "tr": "İletişim",
         "en": "Contact",
-        "ar": "اتصل بنا"
+        "ar": "اتصل بنا",
+        "de": "Kontakt",
+        "ru": "Контакты"
       },
       "status": "play",
       "id": "iletisim",
@@ -106,7 +120,9 @@
       "description": {
         "tr": "Telefon, WhatsApp, adres ve saatler.",
         "en": "Phone, WhatsApp, address and hours.",
-        "ar": "الهاتف وواتساب والعنوان والساعات."
+        "ar": "الهاتف وواتساب والعنوان والساعات.",
+        "de": "Telefon, WhatsApp, Adresse und Öffnungszeiten.",
+        "ru": "Телефон, WhatsApp, адрес и часы работы."
       }
     }
   ],

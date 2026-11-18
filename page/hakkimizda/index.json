@@ -2,7 +2,9 @@
   "name": {
     "tr": "Konak",
     "en": "The house",
-    "ar": "البيت"
+    "ar": "البيت",
+    "de": "Haus",
+    "ru": "Дом"
   },
   "status": "play",
   "category": "",
@@ -24,7 +26,9 @@
   "description": {
     "tr": "Albümler, komşu işletmeler ve sorular (kurgusal).",
     "en": "Albums, neighbouring businesses and questions (fictional).",
-    "ar": "الألبومات والجهات المجاورة والأسئلة (افتراضي)."
+    "ar": "الألبومات والجهات المجاورة والأسئلة (افتراضي).",
+    "de": "Alben, Nachbarbetriebe und Fragen (fiktiv).",
+    "ru": "Альбомы, соседние заведения и вопросы (вымышленные)."
   },
   "spot": {
     "tr": "",
@@ -35,12 +39,16 @@
   "title": {
     "tr": "Konak",
     "en": "The house",
-    "ar": "البيت"
+    "ar": "البيت",
+    "de": "Haus",
+    "ru": "Дом"
   },
   "keyword": {
     "tr": "hakkımızda",
     "en": "about",
-    "ar": "من نحن"
+    "ar": "من نحن",
+    "de": "Über uns",
+    "ru": "О нас"
   },
   "text": {},
   "update": "2026-11-16T20:26:23.798Z",

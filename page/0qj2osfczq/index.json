@@ -3,17 +3,23 @@
   "name": {
     "tr": "Gün planı",
     "en": "Day plan",
-    "ar": "برنامج اليوم"
+    "ar": "برنامج اليوم",
+    "de": "Tagesplan",
+    "ru": "Расписание"
   },
   "description": {
     "tr": "Konakta bir gün ve mevsim takvimi.",
     "en": "A day at the house and the season calendar.",
-    "ar": "يوم في البيت وتقويم المواسم."
+    "ar": "يوم في البيت وتقويم المواسم.",
+    "de": "Ein Tag im Herrenhaus und der Saisonkalender.",
+    "ru": "День в усадьбе и сезонный календарь."
   },
   "keyword": {
     "tr": "gün planı, mevsim",
     "en": "day plan, season",
-    "ar": "برنامج اليوم، المواسم"
+    "ar": "برنامج اليوم، المواسم",
+    "de": "Tagesplan, Saison",
+    "ru": "план дня, сезон"
   },
   "path": "hizmetler",
   "icon": "schedule",
@@ -33,7 +39,9 @@
   "title": {
     "tr": "Gün planı",
     "en": "Day plan",
-    "ar": "برنامج اليوم"
+    "ar": "برنامج اليوم",
+    "de": "Tagesplan",
+    "ru": "Расписание"
   },
   "date": "2026-11-16T20:23:30.110Z",
   "update": "2026-11-16T20:26:23.793Z"

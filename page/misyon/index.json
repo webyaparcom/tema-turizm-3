@@ -3,17 +3,23 @@
   "name": {
     "tr": "Misyon",
     "en": "Mission",
-    "ar": "المهمة"
+    "ar": "المهمة",
+    "de": "Mission",
+    "ru": "Миссия"
   },
   "description": {
     "tr": "Misyonumuz",
     "en": "Our mission",
-    "ar": "مهمتنا"
+    "ar": "مهمتنا",
+    "de": "Unsere Mission",
+    "ru": "Наша миссия"
   },
   "keyword": {
     "tr": "Misyon",
     "en": "mission, our mission, corporate responsibility",
-    "ar": "الرسالة, رسالتنا, المسؤولية المؤسسية"
+    "ar": "الرسالة, رسالتنا, المسؤولية المؤسسية",
+    "de": "Mission",
+    "ru": "Миссия"
   },
   "path": "misyon",
   "icon": "flag",
@@ -29,12 +35,16 @@
   "text": {
     "tr": "<h2>Misyonumuz</h2>\n<p>Kayaya oyulmuş bir evde, vadinin ritmine uyan sakin bir konaklama sunmak.</p>",
     "en": "<h2>Our mission</h2>\n<p>To offer a calm stay in a rock-cut house that follows the rhythm of the valley.</p>",
-    "ar": "<h2>مهمتنا</h2>\n<p>تقديم إقامة هادئة في بيت منحوت في الصخر تتبع إيقاع الوادي.</p>"
+    "ar": "<h2>مهمتنا</h2>\n<p>تقديم إقامة هادئة في بيت منحوت في الصخر تتبع إيقاع الوادي.</p>",
+    "de": "<h2>Unsere Mission</h2>\n<p>In einem in den Fels gehauenen Haus einen ruhigen Aufenthalt im Rhythmus des Tals zu bieten.</p>",
+    "ru": "<h2>Наша миссия</h2>\n<p>Предложить спокойное проживание в доме, высеченном в скале, в ритме долины.</p>"
   },
   "title": {
     "tr": "Misyon",
     "en": "Mission",
-    "ar": "المهمة"
+    "ar": "المهمة",
+    "de": "Mission",
+    "ru": "Миссия"
   },
   "date": "2026-11-16T20:23:29.953Z",
   "update": "2026-11-16T20:26:23.811Z",
